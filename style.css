@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* ----- POPPINS FONT Link ----- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -788,7 +788,7 @@ font-weight: 600;
         width: 100%;
     }
     
-=======
+
 /* ----- POPPINS FONT Link ----- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -1564,6 +1564,4 @@ font-weight: 600;
     .input-field{
         width: 100%;
     }
-    
->>>>>>> 810a86362464f58bbc8c4f862f40413eff311ef7
 }
