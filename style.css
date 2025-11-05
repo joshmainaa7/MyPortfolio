@@ -262,7 +262,7 @@ nav {
     background: red;
 }
 .featured-text-info p {
-    color: yellow;
+    color: white;
 }
 
 .social_icons{
@@ -356,7 +356,7 @@ nav {
     font-weight: 600;
     color: var(--text-color-second);
     margin-bottom: 10px;
-    color: yellow;
+    color: white;
 }
 .top-header span{
     color:white;
@@ -366,7 +366,7 @@ h3{
     font-weight: 600;
     color: var(--text-color-second);
     margin-bottom: 15px;
-    color: yellow;
+    color: white;
 }
 
 /* ----- ABOUT INFO ----- */
@@ -386,7 +386,7 @@ h3{
 .about-info p{
     text-align: center;
     font-size: 15px;
-    color: yellow;
+    color: white;
 }
 .about-btn button{
     position: absolute;
@@ -1564,4 +1564,4 @@ font-weight: 600;
     .input-field{
         width: 100%;
     }
-}
+ 
