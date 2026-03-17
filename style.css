@@ -295,14 +295,14 @@ nav {
 /* ----- CIRCUIT BOARD EFFECT ----- */
 .circuit-board{
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 520px;
+    height: 520px;
     margin: auto 0;
     animation: circuitFloat 6s ease-in-out infinite;
 }
 @keyframes circuitFloat{
     0%, 100%{ transform: translateY(0); }
-    50%{ transform: translateY(25px); }
+    50%{ transform: translateY(20px); }
 }
 .circuit-svg{
     position: absolute;
@@ -329,8 +329,8 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 280px;
-    height: 280px;
+    width: 45%;
+    height: 45%;
     border-radius: 12px;
     overflow: hidden;
     z-index: 3;
@@ -684,10 +684,6 @@ font-weight: 600;
         width: 420px;
         height: 420px;
     }
-    .chip-frame{
-        width: 240px;
-        height: 240px;
-    }
 }
 
 /* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
@@ -755,10 +751,6 @@ font-weight: 600;
         width: 280px;
         height: 280px;
         margin: 0 auto;
-    }
-    .chip-frame{
-        width: 150px;
-        height: 150px;
     }
     .skills-box {
         width: 100%;

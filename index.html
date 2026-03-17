@@ -98,128 +98,115 @@
           </div>
           <div class="featured-image">
             <div class="circuit-board">
-              <svg class="circuit-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+              <svg class="circuit-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <filter id="glow">
                     <feGaussianBlur stdDeviation="2" result="blur"/>
-                    <feMerge>
-                      <feMergeNode in="blur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                   </filter>
                   <filter id="glow-strong">
                     <feGaussianBlur stdDeviation="4" result="blur"/>
-                    <feMerge>
-                      <feMergeNode in="blur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                   </filter>
                 </defs>
+                <!-- Traces: chip area is 165-435 (270px wide, centered in 600) -->
                 <g filter="url(#glow)" stroke="#00c9ff" stroke-width="1.5" fill="none" opacity="0.7">
-                  <!-- TOP side pins -->
-                  <path d="M200,175 L200,80 L120,80"/>
-                  <path d="M215,175 L215,65 L100,65"/>
-                  <path d="M230,175 L230,50 L80,50"/>
-                  <path d="M250,175 L250,30 L60,30"/>
-                  <path d="M270,175 L270,50 L420,50"/>
-                  <path d="M285,175 L285,65 L400,65"/>
-                  <path d="M300,175 L300,80 L380,80"/>
-                  <!-- BOTTOM side pins -->
-                  <path d="M200,325 L200,420 L120,420"/>
-                  <path d="M215,325 L215,435 L100,435"/>
-                  <path d="M230,325 L230,450 L80,450"/>
-                  <path d="M250,325 L250,470 L60,470"/>
-                  <path d="M270,325 L270,450 L420,450"/>
-                  <path d="M285,325 L285,435 L400,435"/>
-                  <path d="M300,325 L300,420 L380,420"/>
-                  <!-- LEFT side pins -->
-                  <path d="M175,200 L80,200 L80,120"/>
-                  <path d="M175,215 L65,215 L65,100"/>
-                  <path d="M175,230 L50,230 L50,80"/>
-                  <path d="M175,250 L30,250 L30,60"/>
-                  <path d="M175,270 L50,270 L50,420"/>
-                  <path d="M175,285 L65,285 L65,400"/>
-                  <path d="M175,300 L80,300 L80,380"/>
-                  <!-- RIGHT side pins -->
-                  <path d="M325,200 L420,200 L420,120"/>
-                  <path d="M325,215 L435,215 L435,100"/>
-                  <path d="M325,230 L450,230 L450,80"/>
-                  <path d="M325,250 L470,250 L470,60"/>
-                  <path d="M325,270 L450,270 L450,420"/>
-                  <path d="M325,285 L435,285 L435,400"/>
-                  <path d="M325,300 L420,300 L420,380"/>
+                  <!-- TOP pins -->
+                  <path d="M230,165 L230,90 L140,90"/>
+                  <path d="M255,165 L255,70 L110,70"/>
+                  <path d="M280,165 L280,50 L80,50"/>
+                  <path d="M300,165 L300,30 L50,30"/>
+                  <path d="M320,165 L320,50 L520,50"/>
+                  <path d="M345,165 L345,70 L490,70"/>
+                  <path d="M370,165 L370,90 L460,90"/>
+                  <!-- BOTTOM pins -->
+                  <path d="M230,435 L230,510 L140,510"/>
+                  <path d="M255,435 L255,530 L110,530"/>
+                  <path d="M280,435 L280,550 L80,550"/>
+                  <path d="M300,435 L300,570 L50,570"/>
+                  <path d="M320,435 L320,550 L520,550"/>
+                  <path d="M345,435 L345,530 L490,530"/>
+                  <path d="M370,435 L370,510 L460,510"/>
+                  <!-- LEFT pins -->
+                  <path d="M165,230 L90,230 L90,140"/>
+                  <path d="M165,255 L70,255 L70,110"/>
+                  <path d="M165,280 L50,280 L50,80"/>
+                  <path d="M165,300 L30,300 L30,50"/>
+                  <path d="M165,320 L50,320 L50,520"/>
+                  <path d="M165,345 L70,345 L70,490"/>
+                  <path d="M165,370 L90,370 L90,460"/>
+                  <!-- RIGHT pins -->
+                  <path d="M435,230 L510,230 L510,140"/>
+                  <path d="M435,255 L530,255 L530,110"/>
+                  <path d="M435,280 L550,280 L550,80"/>
+                  <path d="M435,300 L570,300 L570,50"/>
+                  <path d="M435,320 L550,320 L550,520"/>
+                  <path d="M435,345 L530,345 L530,490"/>
+                  <path d="M435,370 L510,370 L510,460"/>
                 </g>
-                <!-- Brighter inner traces -->
+                <!-- Brighter inner traces with double bends -->
                 <g filter="url(#glow-strong)" stroke="#00c9ff" stroke-width="2" fill="none" opacity="0.9">
-                  <!-- TOP main -->
-                  <path d="M230,175 L230,100 L150,100 L150,20"/>
-                  <path d="M250,175 L250,90 L350,90 L350,20"/>
-                  <path d="M270,175 L270,110 L370,110 L370,40"/>
-                  <!-- BOTTOM main -->
-                  <path d="M230,325 L230,400 L150,400 L150,480"/>
-                  <path d="M250,325 L250,410 L350,410 L350,480"/>
-                  <path d="M270,325 L270,390 L370,390 L370,460"/>
-                  <!-- LEFT main -->
-                  <path d="M175,230 L100,230 L100,150 L20,150"/>
-                  <path d="M175,250 L90,250 L90,350 L20,350"/>
-                  <path d="M175,270 L110,270 L110,370 L40,370"/>
-                  <!-- RIGHT main -->
-                  <path d="M325,230 L400,230 L400,150 L480,150"/>
-                  <path d="M325,250 L410,250 L410,350 L480,350"/>
-                  <path d="M325,270 L390,270 L390,370 L460,370"/>
+                  <path d="M270,165 L270,100 L170,100 L170,20"/>
+                  <path d="M300,165 L300,80 L420,80 L420,20"/>
+                  <path d="M330,165 L330,110 L450,110 L450,40"/>
+                  <path d="M270,435 L270,500 L170,500 L170,580"/>
+                  <path d="M300,435 L300,520 L420,520 L420,580"/>
+                  <path d="M330,435 L330,490 L450,490 L450,560"/>
+                  <path d="M165,270 L100,270 L100,170 L20,170"/>
+                  <path d="M165,300 L80,300 L80,420 L20,420"/>
+                  <path d="M165,330 L110,330 L110,450 L40,450"/>
+                  <path d="M435,270 L500,270 L500,170 L580,170"/>
+                  <path d="M435,300 L520,300 L520,420 L580,420"/>
+                  <path d="M435,330 L490,330 L490,450 L560,450"/>
                 </g>
-                <!-- Node dots at endpoints -->
+                <!-- Nodes -->
                 <g filter="url(#glow-strong)" fill="#00c9ff">
-                  <!-- Top nodes -->
-                  <circle cx="120" cy="80" r="3"/><circle cx="100" cy="65" r="3"/>
-                  <circle cx="80" cy="50" r="3"/><circle cx="60" cy="30" r="3"/>
-                  <circle cx="420" cy="50" r="3"/><circle cx="400" cy="65" r="3"/>
-                  <circle cx="380" cy="80" r="3"/>
-                  <circle cx="150" cy="20" r="4"/><circle cx="350" cy="20" r="4"/>
-                  <circle cx="370" cy="40" r="3"/>
-                  <!-- Bottom nodes -->
-                  <circle cx="120" cy="420" r="3"/><circle cx="100" cy="435" r="3"/>
-                  <circle cx="80" cy="450" r="3"/><circle cx="60" cy="470" r="3"/>
-                  <circle cx="420" cy="450" r="3"/><circle cx="400" cy="435" r="3"/>
-                  <circle cx="380" cy="420" r="3"/>
-                  <circle cx="150" cy="480" r="4"/><circle cx="350" cy="480" r="4"/>
-                  <circle cx="370" cy="460" r="3"/>
-                  <!-- Left nodes -->
-                  <circle cx="80" cy="120" r="3"/><circle cx="65" cy="100" r="3"/>
-                  <circle cx="50" cy="80" r="3"/><circle cx="30" cy="60" r="3"/>
-                  <circle cx="50" cy="420" r="3"/><circle cx="65" cy="400" r="3"/>
-                  <circle cx="80" cy="380" r="3"/>
-                  <circle cx="20" cy="150" r="4"/><circle cx="20" cy="350" r="4"/>
-                  <circle cx="40" cy="370" r="3"/>
-                  <!-- Right nodes -->
-                  <circle cx="420" cy="120" r="3"/><circle cx="435" cy="100" r="3"/>
-                  <circle cx="450" cy="80" r="3"/><circle cx="470" cy="60" r="3"/>
-                  <circle cx="450" cy="420" r="3"/><circle cx="435" cy="400" r="3"/>
-                  <circle cx="420" cy="380" r="3"/>
-                  <circle cx="480" cy="150" r="4"/><circle cx="480" cy="350" r="4"/>
-                  <circle cx="460" cy="370" r="3"/>
+                  <circle cx="140" cy="90" r="3"/><circle cx="110" cy="70" r="3"/>
+                  <circle cx="80" cy="50" r="3"/><circle cx="50" cy="30" r="4"/>
+                  <circle cx="520" cy="50" r="3"/><circle cx="490" cy="70" r="3"/>
+                  <circle cx="460" cy="90" r="3"/>
+                  <circle cx="170" cy="20" r="4"/><circle cx="420" cy="20" r="4"/>
+                  <circle cx="450" cy="40" r="3"/>
+                  <circle cx="140" cy="510" r="3"/><circle cx="110" cy="530" r="3"/>
+                  <circle cx="80" cy="550" r="3"/><circle cx="50" cy="570" r="4"/>
+                  <circle cx="520" cy="550" r="3"/><circle cx="490" cy="530" r="3"/>
+                  <circle cx="460" cy="510" r="3"/>
+                  <circle cx="170" cy="580" r="4"/><circle cx="420" cy="580" r="4"/>
+                  <circle cx="450" cy="560" r="3"/>
+                  <circle cx="90" cy="140" r="3"/><circle cx="70" cy="110" r="3"/>
+                  <circle cx="50" cy="80" r="3"/><circle cx="30" cy="50" r="4"/>
+                  <circle cx="50" cy="520" r="3"/><circle cx="70" cy="490" r="3"/>
+                  <circle cx="90" cy="460" r="3"/>
+                  <circle cx="20" cy="170" r="4"/><circle cx="20" cy="420" r="4"/>
+                  <circle cx="40" cy="450" r="3"/>
+                  <circle cx="510" cy="140" r="3"/><circle cx="530" cy="110" r="3"/>
+                  <circle cx="550" cy="80" r="3"/><circle cx="570" cy="50" r="4"/>
+                  <circle cx="550" cy="520" r="3"/><circle cx="530" cy="490" r="3"/>
+                  <circle cx="510" cy="460" r="3"/>
+                  <circle cx="580" cy="170" r="4"/><circle cx="580" cy="420" r="4"/>
+                  <circle cx="560" cy="450" r="3"/>
                 </g>
-                <!-- Animated pulse dots traveling along traces -->
-                <circle class="svg-pulse svg-pulse-1" r="4" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="3s" repeatCount="indefinite" path="M250,175 L250,30 L60,30"/>
+                <!-- Animated pulse dots -->
+                <circle r="4" fill="#fff" filter="url(#glow-strong)">
+                  <animateMotion dur="3s" repeatCount="indefinite" path="M300,165 L300,30 L50,30"/>
                 </circle>
-                <circle class="svg-pulse svg-pulse-2" r="4" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="3s" repeatCount="indefinite" begin="0.5s" path="M325,250 L470,250 L470,60"/>
+                <circle r="4" fill="#fff" filter="url(#glow-strong)">
+                  <animateMotion dur="3s" repeatCount="indefinite" begin="0.5s" path="M435,300 L570,300 L570,50"/>
                 </circle>
-                <circle class="svg-pulse svg-pulse-3" r="4" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M250,325 L250,470 L60,470"/>
+                <circle r="4" fill="#fff" filter="url(#glow-strong)">
+                  <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M300,435 L300,570 L50,570"/>
                 </circle>
-                <circle class="svg-pulse svg-pulse-4" r="4" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s" path="M175,250 L30,250 L30,60"/>
+                <circle r="4" fill="#fff" filter="url(#glow-strong)">
+                  <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s" path="M165,300 L30,300 L30,50"/>
                 </circle>
-                <circle class="svg-pulse svg-pulse-5" r="3" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.3s" path="M325,230 L400,230 L400,150 L480,150"/>
+                <circle r="3" fill="#fff" filter="url(#glow-strong)">
+                  <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.3s" path="M435,270 L500,270 L500,170 L580,170"/>
                 </circle>
-                <circle class="svg-pulse svg-pulse-6" r="3" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.8s" path="M175,270 L110,270 L110,370 L40,370"/>
+                <circle r="3" fill="#fff" filter="url(#glow-strong)">
+                  <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.8s" path="M165,330 L110,330 L110,450 L40,450"/>
                 </circle>
-                <!-- Chip outline -->
-                <rect x="174" y="174" width="152" height="152" rx="12" fill="none" stroke="#00c9ff" stroke-width="3" filter="url(#glow-strong)" class="chip-rect"/>
+                <!-- Chip outline in SVG -->
+                <rect x="165" y="165" width="270" height="270" rx="12" fill="none" stroke="#00c9ff" stroke-width="3" filter="url(#glow-strong)" class="chip-rect"/>
               </svg>
               <div class="chip-frame">
                 <div class="image">
