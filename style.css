@@ -329,8 +329,8 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 55%;
-    height: 55%;
+    width: 65%;
+    height: 65%;
     border-radius: 12px;
     overflow: hidden;
     z-index: 3;
