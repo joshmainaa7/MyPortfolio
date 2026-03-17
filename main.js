@@ -1,3 +1,8 @@
+/* ----- SCROLL TO TOP ON PAGE LOAD ----- */
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
 /* ----- NAVIGATION BAR FUNCTION ----- */
 function myMenuFunction(){
   var menuBtn = document.getElementById("myNavMenu");
