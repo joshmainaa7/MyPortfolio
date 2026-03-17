@@ -292,70 +292,269 @@ nav {
     min-height: 80vh;
     width: 50%;
 }
-.image{
-    margin: auto 0;
+/* ----- CIRCUIT BOARD EFFECT ----- */
+.circuit-board{
+    position: relative;
     width: 380px;
     height: 380px;
-    border-radius: 55% 45% 55% 45%;
-    overflow: hidden;
-    animation: imgFloat 7s ease-in-out infinite;
-    border: 4px solid transparent;
-    background-clip: padding-box;
-    box-shadow:
-        0 0 15px rgba(0, 201, 255, 0.4),
-        0 0 40px rgba(110, 87, 224, 0.2),
-        inset 0 0 15px rgba(0, 0, 0, 0.1);
-    position: relative;
+    margin: auto 0;
 }
-.image::before{
-    content: '';
+
+/* Chip frame around the photo */
+.chip-frame{
     position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, #00c9ff, #6e57e0, #ff0000, #ffff00, #00c9ff);
-    background-size: 300% 300%;
-    z-index: -1;
-    animation: glowRotate 5s ease infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: 220px;
+    border: 2px solid #00c9ff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow:
+        0 0 20px rgba(0, 201, 255, 0.5),
+        0 0 60px rgba(0, 201, 255, 0.15),
+        inset 0 0 20px rgba(0, 201, 255, 0.1);
+    z-index: 2;
+    animation: chipGlow 3s ease-in-out infinite;
 }
-.image img{
+.chip-frame .image{
+    width: 100%;
+    height: 100%;
+    border-radius: 13px;
+    overflow: hidden;
+}
+.chip-frame .image img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
 }
-.image:hover img{
-    transform: scale(1.05);
+@keyframes chipGlow{
+    0%, 100%{ box-shadow: 0 0 20px rgba(0, 201, 255, 0.5), 0 0 60px rgba(0, 201, 255, 0.15); }
+    50%{ box-shadow: 0 0 30px rgba(0, 201, 255, 0.8), 0 0 80px rgba(0, 201, 255, 0.3); }
 }
-@keyframes imgFloat {
-    0%{
-        transform: translateY(0) rotate(0deg);
-        border-radius: 55% 45% 55% 45%;
-        box-shadow:
-            0 0 15px rgba(0, 201, 255, 0.4),
-            0 0 40px rgba(110, 87, 224, 0.2);
-    }
-    50%{
-        transform: translateY(30px) rotate(2deg);
-        border-radius: 45% 55% 45% 55%;
-        box-shadow:
-            0 0 25px rgba(0, 201, 255, 0.6),
-            0 0 60px rgba(110, 87, 224, 0.3);
-    }
-    100%{
-        transform: translateY(0) rotate(0deg);
-        border-radius: 55% 45% 55% 45%;
-        box-shadow:
-            0 0 15px rgba(0, 201, 255, 0.4),
-            0 0 40px rgba(110, 87, 224, 0.2);
-    }
+
+/* Pins coming out of the chip */
+.pin{
+    position: absolute;
+    background: #00c9ff;
+    z-index: 1;
+    box-shadow: 0 0 6px rgba(0, 201, 255, 0.6);
 }
-@keyframes glowRotate {
-    0%{ background-position: 0% 50%; }
-    50%{ background-position: 100% 50%; }
-    100%{ background-position: 0% 50%; }
+.pin-top{
+    width: 2px;
+    height: 40px;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.pin-right{
+    width: 40px;
+    height: 2px;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+}
+.pin-bottom{
+    width: 2px;
+    height: 40px;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.pin-left{
+    width: 40px;
+    height: 2px;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+}
+
+/* Circuit traces */
+.trace{
+    position: absolute;
+    z-index: 0;
+}
+.trace::before{
+    content: '';
+    position: absolute;
+    background: #00c9ff;
+    box-shadow: 0 0 4px rgba(0, 201, 255, 0.4);
+}
+.trace::after{
+    content: '';
+    position: absolute;
+    background: #00c9ff;
+    box-shadow: 0 0 4px rgba(0, 201, 255, 0.4);
+}
+
+/* Trace positions - lines going outward with right-angle bends */
+.trace-top-left{
+    top: 0;
+    left: 40px;
+}
+.trace-top-left::before{
+    width: 2px;
+    height: 50px;
+    top: 0;
+    left: 0;
+}
+.trace-top-left::after{
+    width: 50px;
+    height: 2px;
+    top: 0;
+    left: 0;
+}
+
+.trace-top-right{
+    top: 0;
+    right: 40px;
+}
+.trace-top-right::before{
+    width: 2px;
+    height: 50px;
+    top: 0;
+    right: 0;
+}
+.trace-top-right::after{
+    width: 50px;
+    height: 2px;
+    top: 0;
+    right: 0;
+}
+
+.trace-right{
+    top: 130px;
+    right: 0;
+}
+.trace-right::before{
+    width: 40px;
+    height: 2px;
+    top: 0;
+    right: 0;
+}
+.trace-right::after{
+    width: 2px;
+    height: 40px;
+    top: 0;
+    right: 0;
+}
+
+.trace-bottom-right{
+    bottom: 0;
+    right: 40px;
+}
+.trace-bottom-right::before{
+    width: 2px;
+    height: 50px;
+    bottom: 0;
+    right: 0;
+}
+.trace-bottom-right::after{
+    width: 50px;
+    height: 2px;
+    bottom: 0;
+    right: 0;
+}
+
+.trace-bottom-left{
+    bottom: 0;
+    left: 40px;
+}
+.trace-bottom-left::before{
+    width: 2px;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+}
+.trace-bottom-left::after{
+    width: 50px;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+}
+
+.trace-left{
+    top: 130px;
+    left: 0;
+}
+.trace-left::before{
+    width: 40px;
+    height: 2px;
+    top: 0;
+    left: 0;
+}
+.trace-left::after{
+    width: 2px;
+    height: 40px;
+    top: 0;
+    left: 0;
+}
+
+/* Nodes at trace endpoints */
+.node{
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #00c9ff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 201, 255, 0.8);
+    z-index: 1;
+}
+.trace-top-left .node{ top: -4px; left: -4px; }
+.trace-top-right .node{ top: -4px; right: -4px; }
+.trace-right .node{ top: -4px; right: -4px; }
+.trace-bottom-right .node{ bottom: -4px; right: -4px; }
+.trace-bottom-left .node{ bottom: -4px; left: -4px; }
+.trace-left .node{ top: -4px; left: -4px; }
+
+/* Pulse dots that travel along traces */
+.pulse-dot{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00c9ff, 0 0 20px #00c9ff;
+    z-index: 3;
+}
+.dot-1{
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: dotMoveVertical 3s ease-in-out infinite;
+}
+.dot-2{
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    animation: dotMoveHorizontal 3s ease-in-out infinite 0.75s;
+}
+.dot-3{
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: dotMoveVertical 3s ease-in-out infinite 1.5s;
+}
+.dot-4{
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    animation: dotMoveHorizontal 3s ease-in-out infinite 2.25s;
+}
+@keyframes dotMoveVertical{
+    0%, 100%{ opacity: 0; transform: translateX(-50%) translateY(0); }
+    20%{ opacity: 1; }
+    50%{ opacity: 1; transform: translateX(-50%) translateY(30px); }
+    80%{ opacity: 1; }
+    90%{ opacity: 0; }
+}
+@keyframes dotMoveHorizontal{
+    0%, 100%{ opacity: 0; transform: translateY(-50%) translateX(0); }
+    20%{ opacity: 1; }
+    50%{ opacity: 1; transform: translateY(-50%) translateX(-30px); }
+    80%{ opacity: 1; }
+    90%{ opacity: 0; }
 }
 .scroll-btn{
    position: absolute;
@@ -690,6 +889,10 @@ font-weight: 600;
         width: 320px;
         height: 320px;
     }
+    .circuit-board{
+        width: 340px;
+        height: 340px;
+    }
 }
 
 /* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
@@ -749,6 +952,14 @@ font-weight: 600;
         margin-top: 65px;
     }
     .image, .image img{
+        width: 150px;
+        height: 150px;
+    }
+    .circuit-board{
+        width: 250px;
+        height: 250px;
+    }
+    .chip-frame{
         width: 150px;
         height: 150px;
     }
