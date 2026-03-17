@@ -676,10 +676,6 @@ font-weight: 600;
     .featured-text{
         padding: 0;
     }
-    .image, .image img{
-        width: 320px;
-        height: 320px;
-    }
     .circuit-board{
         width: 420px;
         height: 420px;
@@ -742,10 +738,6 @@ font-weight: 600;
         min-height: 150px;
         width: 100%;
         margin-top: 65px;
-    }
-    .image, .image img{
-        width: 150px;
-        height: 150px;
     }
     .circuit-board{
         width: 280px;
