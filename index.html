@@ -62,7 +62,7 @@
     <main class="wrapper">
        <!-- -------------- FEATURED BOX ---------------- -->
        <section class="featured-box" id="home">
-          <!-- Background circuit traces connecting chip to text -->
+          <!-- Background circuit traces: text → chip (left to right) -->
           <svg class="circuit-bg" viewBox="0 0 1200 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <filter id="bg-glow">
@@ -74,68 +74,85 @@
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            <!-- Main horizontal traces from right (chip) to left (text) -->
+            <!-- Traces originating from text area going right to chip -->
             <g filter="url(#bg-glow)" stroke="#00c9ff" fill="none" opacity="0.35">
-              <path stroke-width="1.5" d="M750,280 L400,280 L400,200 L100,200"/>
-              <path stroke-width="1" d="M750,300 L350,300 L350,230 L50,230"/>
-              <path stroke-width="1.5" d="M750,320 L450,320 L450,260 L150,260"/>
-              <path stroke-width="1" d="M750,380 L400,380 L400,450 L120,450"/>
-              <path stroke-width="1.5" d="M750,400 L350,400 L350,480 L80,480"/>
-              <path stroke-width="1" d="M750,420 L450,420 L450,510 L160,510"/>
-              <!-- Vertical branches off the horizontal traces -->
-              <path stroke-width="1" d="M400,200 L400,150"/>
-              <path stroke-width="1" d="M350,230 L350,170"/>
-              <path stroke-width="1" d="M500,320 L500,260 L300,260"/>
-              <path stroke-width="1" d="M400,450 L400,520"/>
-              <path stroke-width="1" d="M500,380 L500,440 L300,440"/>
-              <path stroke-width="1" d="M350,480 L350,550"/>
-              <!-- Extra branching traces -->
-              <path stroke-width="1" d="M600,280 L600,200 L500,200"/>
-              <path stroke-width="1" d="M550,300 L550,240 L450,240"/>
-              <path stroke-width="1" d="M600,420 L600,500 L500,500"/>
-              <path stroke-width="1" d="M550,400 L550,460 L450,460"/>
-              <!-- Short stubs near the text area -->
-              <path stroke-width="1" d="M200,200 L200,160"/>
-              <path stroke-width="1" d="M150,260 L150,220"/>
-              <path stroke-width="1" d="M250,260 L250,300"/>
-              <path stroke-width="1" d="M200,450 L200,500"/>
-              <path stroke-width="1" d="M250,440 L250,490"/>
-              <path stroke-width="1" d="M120,450 L120,400"/>
+              <!-- From top-left text area -->
+              <path stroke-width="1.5" d="M30,180 L180,180 L180,250 L400,250 L400,280 L750,280"/>
+              <path stroke-width="1" d="M50,210 L200,210 L200,270 L450,270 L450,300 L750,300"/>
+              <path stroke-width="1.5" d="M70,240 L150,240 L150,290 L500,290 L500,320 L750,320"/>
+              <!-- From bottom-left text area -->
+              <path stroke-width="1" d="M30,520 L180,520 L180,460 L400,460 L400,420 L750,420"/>
+              <path stroke-width="1.5" d="M50,490 L200,490 L200,440 L450,440 L450,400 L750,400"/>
+              <path stroke-width="1" d="M70,460 L150,460 L150,410 L500,410 L500,380 L750,380"/>
+              <!-- Vertical branches -->
+              <path stroke-width="1" d="M180,180 L180,140"/>
+              <path stroke-width="1" d="M200,210 L200,160"/>
+              <path stroke-width="1" d="M400,250 L400,200"/>
+              <path stroke-width="1" d="M500,290 L500,240"/>
+              <path stroke-width="1" d="M600,280 L600,220"/>
+              <path stroke-width="1" d="M180,520 L180,560"/>
+              <path stroke-width="1" d="M200,490 L200,540"/>
+              <path stroke-width="1" d="M400,460 L400,510"/>
+              <path stroke-width="1" d="M500,410 L500,470"/>
+              <path stroke-width="1" d="M600,420 L600,480"/>
+              <!-- Horizontal sub-branches -->
+              <path stroke-width="1" d="M180,140 L250,140"/>
+              <path stroke-width="1" d="M400,200 L470,200"/>
+              <path stroke-width="1" d="M500,240 L560,240"/>
+              <path stroke-width="1" d="M180,560 L250,560"/>
+              <path stroke-width="1" d="M400,510 L470,510"/>
+              <path stroke-width="1" d="M500,470 L560,470"/>
+              <!-- Traces from text edges -->
+              <path stroke-width="1" d="M20,300 L120,300 L120,340 L300,340"/>
+              <path stroke-width="1" d="M20,400 L120,400 L120,360 L300,360"/>
+              <path stroke-width="1" d="M40,340 L100,340 L100,320 L250,320"/>
+              <path stroke-width="1" d="M40,360 L100,360 L100,380 L250,380"/>
             </g>
-            <!-- Brighter accent traces -->
+            <!-- Brighter main traces (text → chip) -->
             <g filter="url(#bg-glow-strong)" stroke="#00c9ff" fill="none" opacity="0.5">
-              <path stroke-width="2" d="M750,340 L300,340"/>
-              <path stroke-width="2" d="M750,360 L300,360"/>
-              <path stroke-width="1.5" d="M300,340 L300,280 L150,280"/>
-              <path stroke-width="1.5" d="M300,360 L300,420 L150,420"/>
+              <path stroke-width="2" d="M80,280 L200,280 L200,340 L750,340"/>
+              <path stroke-width="2" d="M80,420 L200,420 L200,360 L750,360"/>
+              <path stroke-width="1.5" d="M100,310 L250,310 L250,330 L650,330"/>
+              <path stroke-width="1.5" d="M100,390 L250,390 L250,370 L650,370"/>
             </g>
-            <!-- Nodes on background traces -->
+            <!-- Nodes - origin points near text -->
             <g filter="url(#bg-glow-strong)" fill="#00c9ff">
-              <circle cx="100" cy="200" r="3"/><circle cx="50" cy="230" r="3"/>
-              <circle cx="150" cy="260" r="3"/><circle cx="120" cy="450" r="3"/>
-              <circle cx="80" cy="480" r="3"/><circle cx="160" cy="510" r="3"/>
-              <circle cx="400" cy="150" r="2.5"/><circle cx="350" cy="170" r="2.5"/>
-              <circle cx="400" cy="520" r="2.5"/><circle cx="350" cy="550" r="2.5"/>
-              <circle cx="500" cy="200" r="2.5"/><circle cx="450" cy="240" r="2.5"/>
-              <circle cx="500" cy="500" r="2.5"/><circle cx="450" cy="460" r="2.5"/>
-              <circle cx="300" cy="260" r="2.5"/><circle cx="300" cy="440" r="2.5"/>
-              <circle cx="200" cy="160" r="2.5"/><circle cx="150" cy="220" r="2.5"/>
-              <circle cx="250" cy="300" r="2.5"/><circle cx="200" cy="500" r="2.5"/>
-              <circle cx="250" cy="490" r="2.5"/><circle cx="120" cy="400" r="2.5"/>
-              <circle cx="150" cy="280" r="3"/><circle cx="150" cy="420" r="3"/>
+              <!-- Text-side origin nodes (larger, these are the "source") -->
+              <circle cx="30" cy="180" r="4"/><circle cx="50" cy="210" r="4"/>
+              <circle cx="70" cy="240" r="4"/><circle cx="80" cy="280" r="4.5"/>
+              <circle cx="100" cy="310" r="3.5"/><circle cx="20" cy="300" r="3.5"/>
+              <circle cx="40" cy="340" r="3"/><circle cx="40" cy="360" r="3"/>
+              <circle cx="20" cy="400" r="3.5"/><circle cx="100" cy="390" r="3.5"/>
+              <circle cx="80" cy="420" r="4.5"/><circle cx="70" cy="460" r="4"/>
+              <circle cx="50" cy="490" r="4"/><circle cx="30" cy="520" r="4"/>
+              <!-- Branch endpoint nodes -->
+              <circle cx="250" cy="140" r="2.5"/><circle cx="470" cy="200" r="2.5"/>
+              <circle cx="560" cy="240" r="2.5"/><circle cx="600" cy="220" r="2.5"/>
+              <circle cx="250" cy="560" r="2.5"/><circle cx="470" cy="510" r="2.5"/>
+              <circle cx="560" cy="470" r="2.5"/><circle cx="600" cy="480" r="2.5"/>
+              <circle cx="180" cy="140" r="2.5"/><circle cx="200" cy="160" r="2.5"/>
+              <circle cx="400" cy="200" r="2.5"/><circle cx="500" cy="240" r="2.5"/>
+              <circle cx="180" cy="560" r="2.5"/><circle cx="200" cy="540" r="2.5"/>
+              <circle cx="400" cy="510" r="2.5"/><circle cx="500" cy="470" r="2.5"/>
             </g>
-            <!-- Animated pulses along background traces -->
+            <!-- Animated pulses: text → chip direction (left to right) -->
             <circle r="3.5" fill="#fff" filter="url(#bg-glow-strong)" opacity="0.9">
-              <animateMotion dur="4s" repeatCount="indefinite" path="M750,340 L300,340 L300,280 L150,280"/>
+              <animateMotion dur="4s" repeatCount="indefinite" path="M80,280 L200,280 L200,340 L750,340"/>
             </circle>
             <circle r="3.5" fill="#fff" filter="url(#bg-glow-strong)" opacity="0.9">
-              <animateMotion dur="4s" repeatCount="indefinite" begin="2s" path="M750,360 L300,360 L300,420 L150,420"/>
+              <animateMotion dur="4s" repeatCount="indefinite" begin="2s" path="M80,420 L200,420 L200,360 L750,360"/>
             </circle>
             <circle r="3" fill="#fff" filter="url(#bg-glow-strong)" opacity="0.7">
-              <animateMotion dur="5s" repeatCount="indefinite" begin="1s" path="M750,280 L400,280 L400,200 L100,200"/>
+              <animateMotion dur="5s" repeatCount="indefinite" begin="0.8s" path="M30,180 L180,180 L180,250 L400,250 L400,280 L750,280"/>
             </circle>
             <circle r="3" fill="#fff" filter="url(#bg-glow-strong)" opacity="0.7">
-              <animateMotion dur="5s" repeatCount="indefinite" begin="3s" path="M750,400 L350,400 L350,480 L80,480"/>
+              <animateMotion dur="5s" repeatCount="indefinite" begin="2.8s" path="M50,490 L200,490 L200,440 L450,440 L450,400 L750,400"/>
+            </circle>
+            <circle r="2.5" fill="#fff" filter="url(#bg-glow-strong)" opacity="0.6">
+              <animateMotion dur="4.5s" repeatCount="indefinite" begin="1.5s" path="M70,240 L150,240 L150,290 L500,290 L500,320 L750,320"/>
+            </circle>
+            <circle r="2.5" fill="#fff" filter="url(#bg-glow-strong)" opacity="0.6">
+              <animateMotion dur="4.5s" repeatCount="indefinite" begin="3.5s" path="M70,460 L150,460 L150,410 L500,410 L500,380 L750,380"/>
             </circle>
           </svg>
           <div class="featured-text">
