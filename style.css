@@ -295,8 +295,8 @@ nav {
 /* ----- CIRCUIT BOARD EFFECT ----- */
 .circuit-board{
     position: relative;
-    width: 220px;
-    height: 220px;
+    width: 400px;
+    height: 400px;
     margin: auto 0;
     animation: circuitFloat 6s ease-in-out infinite;
 }
@@ -677,8 +677,8 @@ font-weight: 600;
         padding: 0;
     }
     .circuit-board{
-        width: 420px;
-        height: 420px;
+        width: 350px;
+        height: 350px;
     }
 }
 
@@ -740,8 +740,8 @@ font-weight: 600;
         margin-top: 65px;
     }
     .circuit-board{
-        width: 280px;
-        height: 280px;
+        width: 200px;
+        height: 200px;
         margin: 0 auto;
     }
     .skills-box {
