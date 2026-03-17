@@ -295,9 +295,10 @@ nav {
 /* ----- CIRCUIT BOARD EFFECT ----- */
 .circuit-board{
     position: relative;
-    width: 380px;
-    height: 380px;
+    width: 400px;
+    height: 400px;
     margin: auto 0;
+    overflow: visible;
 }
 
 /* Chip frame around the photo */
@@ -306,22 +307,22 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 220px;
-    height: 220px;
-    border: 2px solid #00c9ff;
-    border-radius: 15px;
+    width: 200px;
+    height: 200px;
+    border: 3px solid #00c9ff;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow:
-        0 0 20px rgba(0, 201, 255, 0.5),
-        0 0 60px rgba(0, 201, 255, 0.15),
-        inset 0 0 20px rgba(0, 201, 255, 0.1);
+        0 0 25px rgba(0, 201, 255, 0.7),
+        0 0 60px rgba(0, 201, 255, 0.3),
+        inset 0 0 20px rgba(0, 201, 255, 0.15);
     z-index: 2;
     animation: chipGlow 3s ease-in-out infinite;
 }
 .chip-frame .image{
     width: 100%;
     height: 100%;
-    border-radius: 13px;
+    border-radius: 9px;
     overflow: hidden;
 }
 .chip-frame .image img{
@@ -330,47 +331,47 @@ nav {
     object-fit: cover;
 }
 @keyframes chipGlow{
-    0%, 100%{ box-shadow: 0 0 20px rgba(0, 201, 255, 0.5), 0 0 60px rgba(0, 201, 255, 0.15); }
-    50%{ box-shadow: 0 0 30px rgba(0, 201, 255, 0.8), 0 0 80px rgba(0, 201, 255, 0.3); }
+    0%, 100%{ box-shadow: 0 0 25px rgba(0, 201, 255, 0.7), 0 0 60px rgba(0, 201, 255, 0.3); }
+    50%{ box-shadow: 0 0 40px rgba(0, 201, 255, 1), 0 0 100px rgba(0, 201, 255, 0.5); }
 }
 
-/* Pins coming out of the chip */
+/* Pins - thick lines from chip to outer traces */
 .pin{
     position: absolute;
     background: #00c9ff;
     z-index: 1;
-    box-shadow: 0 0 6px rgba(0, 201, 255, 0.6);
+    box-shadow: 0 0 8px rgba(0, 201, 255, 0.8);
 }
 .pin-top{
-    width: 2px;
-    height: 40px;
-    top: 40px;
+    width: 3px;
+    height: 80px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
 }
 .pin-right{
-    width: 40px;
-    height: 2px;
+    width: 80px;
+    height: 3px;
     top: 50%;
-    right: 40px;
+    right: 20px;
     transform: translateY(-50%);
 }
 .pin-bottom{
-    width: 2px;
-    height: 40px;
-    bottom: 40px;
+    width: 3px;
+    height: 80px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
 }
 .pin-left{
-    width: 40px;
-    height: 2px;
+    width: 80px;
+    height: 3px;
     top: 50%;
-    left: 40px;
+    left: 20px;
     transform: translateY(-50%);
 }
 
-/* Circuit traces */
+/* Circuit traces - L-shaped lines at corners */
 .trace{
     position: absolute;
     z-index: 0;
@@ -379,182 +380,196 @@ nav {
     content: '';
     position: absolute;
     background: #00c9ff;
-    box-shadow: 0 0 4px rgba(0, 201, 255, 0.4);
+    box-shadow: 0 0 8px rgba(0, 201, 255, 0.6);
 }
 .trace::after{
     content: '';
     position: absolute;
     background: #00c9ff;
-    box-shadow: 0 0 4px rgba(0, 201, 255, 0.4);
+    box-shadow: 0 0 8px rgba(0, 201, 255, 0.6);
 }
 
-/* Trace positions - lines going outward with right-angle bends */
 .trace-top-left{
-    top: 0;
-    left: 40px;
+    top: 10px;
+    left: 30px;
 }
 .trace-top-left::before{
-    width: 2px;
-    height: 50px;
+    width: 3px;
+    height: 70px;
     top: 0;
     left: 0;
 }
 .trace-top-left::after{
-    width: 50px;
-    height: 2px;
+    width: 70px;
+    height: 3px;
     top: 0;
     left: 0;
 }
 
 .trace-top-right{
-    top: 0;
-    right: 40px;
+    top: 10px;
+    right: 30px;
 }
 .trace-top-right::before{
-    width: 2px;
-    height: 50px;
+    width: 3px;
+    height: 70px;
     top: 0;
     right: 0;
 }
 .trace-top-right::after{
-    width: 50px;
-    height: 2px;
+    width: 70px;
+    height: 3px;
     top: 0;
     right: 0;
 }
 
 .trace-right{
-    top: 130px;
-    right: 0;
+    top: 120px;
+    right: 10px;
 }
 .trace-right::before{
-    width: 40px;
-    height: 2px;
+    width: 60px;
+    height: 3px;
     top: 0;
     right: 0;
 }
 .trace-right::after{
-    width: 2px;
-    height: 40px;
+    width: 3px;
+    height: 60px;
     top: 0;
     right: 0;
 }
 
 .trace-bottom-right{
-    bottom: 0;
-    right: 40px;
+    bottom: 10px;
+    right: 30px;
 }
 .trace-bottom-right::before{
-    width: 2px;
-    height: 50px;
+    width: 3px;
+    height: 70px;
     bottom: 0;
     right: 0;
 }
 .trace-bottom-right::after{
-    width: 50px;
-    height: 2px;
+    width: 70px;
+    height: 3px;
     bottom: 0;
     right: 0;
 }
 
 .trace-bottom-left{
-    bottom: 0;
-    left: 40px;
+    bottom: 10px;
+    left: 30px;
 }
 .trace-bottom-left::before{
-    width: 2px;
-    height: 50px;
+    width: 3px;
+    height: 70px;
     bottom: 0;
     left: 0;
 }
 .trace-bottom-left::after{
-    width: 50px;
-    height: 2px;
+    width: 70px;
+    height: 3px;
     bottom: 0;
     left: 0;
 }
 
 .trace-left{
-    top: 130px;
-    left: 0;
+    top: 120px;
+    left: 10px;
 }
 .trace-left::before{
-    width: 40px;
-    height: 2px;
+    width: 60px;
+    height: 3px;
     top: 0;
     left: 0;
 }
 .trace-left::after{
-    width: 2px;
-    height: 40px;
+    width: 3px;
+    height: 60px;
     top: 0;
     left: 0;
 }
 
-/* Nodes at trace endpoints */
+/* Nodes - glowing circles at trace endpoints */
 .node{
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #00c9ff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 201, 255, 1), 0 0 25px rgba(0, 201, 255, 0.5);
+    z-index: 1;
+    animation: nodePulse 2s ease-in-out infinite;
+}
+.trace-top-left .node{ top: -6px; left: -6px; }
+.trace-top-right .node{ top: -6px; right: -6px; }
+.trace-right .node{ top: -6px; right: -6px; }
+.trace-bottom-right .node{ bottom: -6px; right: -6px; }
+.trace-bottom-left .node{ bottom: -6px; left: -6px; }
+.trace-left .node{ top: -6px; left: -6px; }
+@keyframes nodePulse{
+    0%, 100%{ box-shadow: 0 0 12px rgba(0, 201, 255, 1), 0 0 25px rgba(0, 201, 255, 0.5); }
+    50%{ box-shadow: 0 0 20px rgba(0, 201, 255, 1), 0 0 40px rgba(0, 201, 255, 0.8); }
+}
+
+/* Pulse dots - bright dots that travel along the pins */
+.pulse-dot{
     position: absolute;
     width: 8px;
     height: 8px;
-    background: #00c9ff;
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(0, 201, 255, 0.8);
-    z-index: 1;
-}
-.trace-top-left .node{ top: -4px; left: -4px; }
-.trace-top-right .node{ top: -4px; right: -4px; }
-.trace-right .node{ top: -4px; right: -4px; }
-.trace-bottom-right .node{ bottom: -4px; right: -4px; }
-.trace-bottom-left .node{ bottom: -4px; left: -4px; }
-.trace-left .node{ top: -4px; left: -4px; }
-
-/* Pulse dots that travel along traces */
-.pulse-dot{
-    position: absolute;
-    width: 6px;
-    height: 6px;
     background: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 10px #00c9ff, 0 0 20px #00c9ff;
+    box-shadow: 0 0 15px #00c9ff, 0 0 30px #00c9ff;
     z-index: 3;
 }
 .dot-1{
-    top: 40px;
+    top: 100px;
     left: 50%;
-    transform: translateX(-50%);
-    animation: dotMoveVertical 3s ease-in-out infinite;
+    animation: dotUp 2.5s linear infinite;
 }
 .dot-2{
     top: 50%;
-    right: 40px;
-    transform: translateY(-50%);
-    animation: dotMoveHorizontal 3s ease-in-out infinite 0.75s;
+    right: 100px;
+    animation: dotRight 2.5s linear infinite 0.6s;
 }
 .dot-3{
-    bottom: 40px;
+    bottom: 100px;
     left: 50%;
-    transform: translateX(-50%);
-    animation: dotMoveVertical 3s ease-in-out infinite 1.5s;
+    animation: dotDown 2.5s linear infinite 1.2s;
 }
 .dot-4{
     top: 50%;
-    left: 40px;
-    transform: translateY(-50%);
-    animation: dotMoveHorizontal 3s ease-in-out infinite 2.25s;
+    left: 100px;
+    animation: dotLeft 2.5s linear infinite 1.8s;
 }
-@keyframes dotMoveVertical{
-    0%, 100%{ opacity: 0; transform: translateX(-50%) translateY(0); }
-    20%{ opacity: 1; }
-    50%{ opacity: 1; transform: translateX(-50%) translateY(30px); }
-    80%{ opacity: 1; }
-    90%{ opacity: 0; }
+@keyframes dotUp{
+    0%{ transform: translate(-50%, 0); opacity: 0; }
+    10%{ opacity: 1; }
+    50%{ transform: translate(-50%, -70px); opacity: 1; }
+    60%{ opacity: 0; }
+    100%{ opacity: 0; }
 }
-@keyframes dotMoveHorizontal{
-    0%, 100%{ opacity: 0; transform: translateY(-50%) translateX(0); }
-    20%{ opacity: 1; }
-    50%{ opacity: 1; transform: translateY(-50%) translateX(-30px); }
-    80%{ opacity: 1; }
-    90%{ opacity: 0; }
+@keyframes dotRight{
+    0%{ transform: translate(0, -50%); opacity: 0; }
+    10%{ opacity: 1; }
+    50%{ transform: translate(70px, -50%); opacity: 1; }
+    60%{ opacity: 0; }
+    100%{ opacity: 0; }
+}
+@keyframes dotDown{
+    0%{ transform: translate(-50%, 0); opacity: 0; }
+    10%{ opacity: 1; }
+    50%{ transform: translate(-50%, 70px); opacity: 1; }
+    60%{ opacity: 0; }
+    100%{ opacity: 0; }
+}
+@keyframes dotLeft{
+    0%{ transform: translate(0, -50%); opacity: 0; }
+    10%{ opacity: 1; }
+    50%{ transform: translate(-70px, -50%); opacity: 1; }
+    60%{ opacity: 0; }
+    100%{ opacity: 0; }
 }
 .scroll-btn{
    position: absolute;
