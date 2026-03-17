@@ -344,6 +344,7 @@ nav {
 }
 .col{
     display: flex;
+    flex-direction: column;
     width: 50%;
 }
 
@@ -403,18 +404,12 @@ h3{
 /* ----- ABOUT / SKILLS BOX ----- */
 
 .skills-title {
-    position: relative;
-    top: 0;
-    left: 250px;
-    
+    margin-bottom: 10px;
 }
 
 
 .skills-box{
-    position: relative;
-    right:150px;
-    margin: 10px;
-    margin-top: 90px;
+    margin-bottom: 25px;
 }
 .skills-header{
     margin-bottom: 10px;
@@ -422,14 +417,14 @@ h3{
 .skills-list{
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 8px;
 }
 
 .skills-list span{
     font-size: 14px;
     background: var(--first-color);
     color: var(--color-white);
-    padding: 2px 10px;
+    padding: 5px 12px;
     border-radius: 5px;
 }
 
@@ -711,16 +706,7 @@ font-weight: 600;
         width: 150px;
         height: 150px;
     }
-    .skills-title {
-        position: relative;
-        top: 0;
-        left: 0;
-    }
     .skills-box {
-        position: relative;
-        right: 0;
-        margin-right: 0;
-        margin-top: 40px;
         width: 100%;
     }
     .about-info{
