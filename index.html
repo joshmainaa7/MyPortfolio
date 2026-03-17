@@ -62,6 +62,82 @@
     <main class="wrapper">
        <!-- -------------- FEATURED BOX ---------------- -->
        <section class="featured-box" id="home">
+          <!-- Background circuit traces connecting chip to text -->
+          <svg class="circuit-bg" viewBox="0 0 1200 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="bg-glow">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="bg-glow-strong">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <!-- Main horizontal traces from right (chip) to left (text) -->
+            <g filter="url(#bg-glow)" stroke="#00c9ff" fill="none" opacity="0.35">
+              <path stroke-width="1.5" d="M750,280 L400,280 L400,200 L100,200"/>
+              <path stroke-width="1" d="M750,300 L350,300 L350,230 L50,230"/>
+              <path stroke-width="1.5" d="M750,320 L450,320 L450,260 L150,260"/>
+              <path stroke-width="1" d="M750,380 L400,380 L400,450 L120,450"/>
+              <path stroke-width="1.5" d="M750,400 L350,400 L350,480 L80,480"/>
+              <path stroke-width="1" d="M750,420 L450,420 L450,510 L160,510"/>
+              <!-- Vertical branches off the horizontal traces -->
+              <path stroke-width="1" d="M400,200 L400,150"/>
+              <path stroke-width="1" d="M350,230 L350,170"/>
+              <path stroke-width="1" d="M500,320 L500,260 L300,260"/>
+              <path stroke-width="1" d="M400,450 L400,520"/>
+              <path stroke-width="1" d="M500,380 L500,440 L300,440"/>
+              <path stroke-width="1" d="M350,480 L350,550"/>
+              <!-- Extra branching traces -->
+              <path stroke-width="1" d="M600,280 L600,200 L500,200"/>
+              <path stroke-width="1" d="M550,300 L550,240 L450,240"/>
+              <path stroke-width="1" d="M600,420 L600,500 L500,500"/>
+              <path stroke-width="1" d="M550,400 L550,460 L450,460"/>
+              <!-- Short stubs near the text area -->
+              <path stroke-width="1" d="M200,200 L200,160"/>
+              <path stroke-width="1" d="M150,260 L150,220"/>
+              <path stroke-width="1" d="M250,260 L250,300"/>
+              <path stroke-width="1" d="M200,450 L200,500"/>
+              <path stroke-width="1" d="M250,440 L250,490"/>
+              <path stroke-width="1" d="M120,450 L120,400"/>
+            </g>
+            <!-- Brighter accent traces -->
+            <g filter="url(#bg-glow-strong)" stroke="#00c9ff" fill="none" opacity="0.5">
+              <path stroke-width="2" d="M750,340 L300,340"/>
+              <path stroke-width="2" d="M750,360 L300,360"/>
+              <path stroke-width="1.5" d="M300,340 L300,280 L150,280"/>
+              <path stroke-width="1.5" d="M300,360 L300,420 L150,420"/>
+            </g>
+            <!-- Nodes on background traces -->
+            <g filter="url(#bg-glow-strong)" fill="#00c9ff">
+              <circle cx="100" cy="200" r="3"/><circle cx="50" cy="230" r="3"/>
+              <circle cx="150" cy="260" r="3"/><circle cx="120" cy="450" r="3"/>
+              <circle cx="80" cy="480" r="3"/><circle cx="160" cy="510" r="3"/>
+              <circle cx="400" cy="150" r="2.5"/><circle cx="350" cy="170" r="2.5"/>
+              <circle cx="400" cy="520" r="2.5"/><circle cx="350" cy="550" r="2.5"/>
+              <circle cx="500" cy="200" r="2.5"/><circle cx="450" cy="240" r="2.5"/>
+              <circle cx="500" cy="500" r="2.5"/><circle cx="450" cy="460" r="2.5"/>
+              <circle cx="300" cy="260" r="2.5"/><circle cx="300" cy="440" r="2.5"/>
+              <circle cx="200" cy="160" r="2.5"/><circle cx="150" cy="220" r="2.5"/>
+              <circle cx="250" cy="300" r="2.5"/><circle cx="200" cy="500" r="2.5"/>
+              <circle cx="250" cy="490" r="2.5"/><circle cx="120" cy="400" r="2.5"/>
+              <circle cx="150" cy="280" r="3"/><circle cx="150" cy="420" r="3"/>
+            </g>
+            <!-- Animated pulses along background traces -->
+            <circle r="3.5" fill="#fff" filter="url(#bg-glow-strong)" opacity="0.9">
+              <animateMotion dur="4s" repeatCount="indefinite" path="M750,340 L300,340 L300,280 L150,280"/>
+            </circle>
+            <circle r="3.5" fill="#fff" filter="url(#bg-glow-strong)" opacity="0.9">
+              <animateMotion dur="4s" repeatCount="indefinite" begin="2s" path="M750,360 L300,360 L300,420 L150,420"/>
+            </circle>
+            <circle r="3" fill="#fff" filter="url(#bg-glow-strong)" opacity="0.7">
+              <animateMotion dur="5s" repeatCount="indefinite" begin="1s" path="M750,280 L400,280 L400,200 L100,200"/>
+            </circle>
+            <circle r="3" fill="#fff" filter="url(#bg-glow-strong)" opacity="0.7">
+              <animateMotion dur="5s" repeatCount="indefinite" begin="3s" path="M750,400 L350,400 L350,480 L80,480"/>
+            </circle>
+          </svg>
           <div class="featured-text">
                <div class="featured-name">
                 <p><span class="typedText"></span></p>
