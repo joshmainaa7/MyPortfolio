@@ -295,8 +295,8 @@ nav {
 /* ----- CIRCUIT BOARD EFFECT ----- */
 .circuit-board{
     position: relative;
-    width: 310px;
-    height: 310px;
+    width: 220px;
+    height: 220px;
     margin: auto 0;
     animation: circuitFloat 6s ease-in-out infinite;
 }
