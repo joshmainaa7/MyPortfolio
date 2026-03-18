@@ -740,10 +740,10 @@ font-weight: 600;
         margin-top: 65px;
     }
     .circuit-board{
-        width: 90vw;
-        height: 90vw;
-        max-width: 400px;
-        max-height: 400px;
+        width: 65vw;
+        height: 65vw;
+        max-width: 300px;
+        max-height: 300px;
         margin: 0 auto;
     }
     .skills-box {
