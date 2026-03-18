@@ -715,7 +715,8 @@ font-weight: 600;
     .featured-box{
         flex-direction: column;
         justify-content: center;
-        height: 100vh;
+        height: auto;
+        min-height: 100vh;
     }
     .wrapper{
         padding-inline: 5vw;
@@ -725,7 +726,7 @@ font-weight: 600;
         order: 2;
         justify-content: center;
         align-content: flex-start;
-        min-height: 60vh;
+        min-height: auto;
         padding-left: 0;
     }
     .social_icons{
@@ -735,15 +736,14 @@ font-weight: 600;
         order: 1;
         justify-content: center;
         align-items: center;
-        min-height: 150px;
+        min-height: auto;
         width: 100%;
-        margin-top: 65px;
+        margin-top: 90px;
+        padding: 10px 0;
     }
     .circuit-board{
-        width: 45vw;
-        height: 45vw;
-        max-width: 200px;
-        max-height: 200px;
+        width: 180px;
+        height: 180px;
         margin: 0 auto;
     }
     .skills-box {
