@@ -101,12 +101,62 @@ i{
 
 /* ------- BASE -------- */
 body{
-    background: black;
+    background: #04040f;
 }
 .container{
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    margin: 0;          /* Remove default body margin */
+    overflow-x: hidden;
+    margin: 0;
     padding: 0;
+    position: relative;
+}
+
+/* --- BACKGROUND COLOUR ORBS --- */
+.container::before{
+    content: '';
+    position: fixed;
+    top: -150px;
+    left: -150px;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(110, 87, 224, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: orbDrift 12s ease-in-out infinite alternate;
+}
+.container::after{
+    content: '';
+    position: fixed;
+    bottom: -150px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 201, 255, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: orbDrift 15s ease-in-out infinite alternate-reverse;
+}
+@keyframes orbDrift{
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(40px, 40px); }
+}
+
+/* Third orb: warm accent mid-page */
+.wrapper::before{
+    content: '';
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(192, 166, 49, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+main, nav, footer{
+    position: relative;
+    z-index: 1;
 }
 
   
@@ -548,7 +598,8 @@ h3{
 
 /* ----- CERTIFICATIONS / BADGES ----- */
 .cert-title {
-    margin-top: 30px;
+    margin-top: 35px;
+    margin-bottom: 5px;
 }
 .badges-row {
     display: flex;
