@@ -125,13 +125,10 @@ body{
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    position: relative;
-    z-index: 1;
 }
 
-main, nav, footer{
+main, footer{
     position: relative;
-    z-index: 1;
 }
 
   
