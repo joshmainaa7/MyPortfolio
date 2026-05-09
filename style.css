@@ -517,6 +517,58 @@ h3{
     z-index: 2;
 }
 
+/* ----- CERTIFICATIONS / BADGES BOX ----- */
+.badges-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.badge-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(10, 10, 25);
+    border: 1px solid rgba(0, 201, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px 25px;
+    width: 260px;
+    transition: .3s;
+    box-shadow: 0 4px 20px rgba(0, 201, 255, 0.08);
+    cursor: pointer;
+}
+.badge-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 201, 255, 0.6);
+    box-shadow: 0 10px 35px rgba(0, 201, 255, 0.22);
+}
+.badge-img-wrapper {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 20px;
+}
+.badge-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.badge-info {
+    text-align: center;
+}
+.badge-info h3 {
+    font-size: 15px;
+    color: white;
+    margin-bottom: 8px;
+}
+.badge-issuer {
+    font-size: 13px;
+    color: var(--second-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
 /* ----- CONTACT BOX ----- */
 .contact-info{
     position: relative;
@@ -781,6 +833,9 @@ font-weight: 600;
     .project-box{
         width: 80%;
     }
+    .badge-card {
+        width: 80%;
+    }
     .scroll-btn{
         position: absolute;
         top: 100%;
@@ -808,6 +863,9 @@ font-weight: 600;
         font-size: 30px;
     }
     .project-box{
+        width: 100%;
+    }
+    .badge-card {
         width: 100%;
     }
     .form-inputs{
