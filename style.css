@@ -386,17 +386,28 @@ main, .nav, .footer { position: relative; z-index: 1; }
 /* ============================================================
    STATS
    ============================================================ */
+/* Five cells never tile evenly, so the last one spans the leftover columns */
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1px;
   background: var(--line);
   border-block: 1px solid var(--line);
+}
+@media (max-width: 1040px) {
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stats > :last-child { grid-column: span 2; }
+}
+@media (max-width: 620px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .stat {
   background: var(--bg);
   padding: 40px 28px;
 }
+/* The Apple CVE is the strongest credential here — mark it */
+.stat--lead .stat__value { color: var(--accent); }
+.stat--lead .stat__label { color: var(--fg-muted); }
 .stat__value {
   display: block;
   font-size: clamp(2.4rem, 5vw, 3.6rem);
