@@ -1,57 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message Sent | Joshua Maina</title>
-    <link rel="shortcut icon" href="images/Black & Blue Minimalist Modern Initial Font Logo.png" type="image/x-icon">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body {
-            background: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 20px;
-        }
-        .success-box {
-            max-width: 500px;
-        }
-        .success-box h1 {
-            font-size: 40px;
-            color: #00c9ff;
-            margin-bottom: 20px;
-        }
-        .success-box p {
-            font-size: 16px;
-            color: #ccc;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        .success-box a {
-            display: inline-block;
-            padding: 12px 30px;
-            background: blue;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        .success-box a:hover {
-            background: red;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message Sent | Joshua Maina</title>
+<link rel="shortcut icon" href="images/Black & Blue Minimalist Modern Initial Font Logo.png" type="image/x-icon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<style>
+  .thanks {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 48px var(--gutter);
+    position: relative;
+    z-index: 1;
+  }
+  .thanks__inner { max-width: 620px; }
+  .thanks__mark {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 32px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    font-size: 1.3rem;
+  }
+  .thanks p {
+    color: var(--fg-muted);
+    margin: 0 auto 40px;
+    max-width: 46ch;
+  }
+</style>
 </head>
 <body>
-    <div class="success-box">
-        <h1>Thank You!</h1>
-        <p>Thank you for reaching out to me. I will get back to you as soon as possible.</p>
-        <a href="index.html">Back to Portfolio</a>
-    </div>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<main class="thanks">
+  <div class="thanks__inner">
+    <div class="thanks__mark">&#10003;</div>
+    <p class="eyebrow">MESSAGE RECEIVED</p>
+    <h1 class="display display--md">Thank you for reaching out.</h1>
+    <p>
+      Your message is on its way. I will get back to you as soon as possible —
+      usually within a couple of days.
+    </p>
+    <a href="index.html" class="btn btn--light">BACK TO PORTFOLIO</a>
+  </div>
+</main>
+
+<script>
+/* Ambient background — same field as the main page */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let dpr = 1, w = 0, h = 0, particles = [];
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth; h = window.innerHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.round(Math.min(70, (w * h) / 26000));
+    particles = Array.from({ length: count }, () => ({
+      x: Math.random() * w, y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22,
+      r: Math.random() * 1.2 + 0.4
+    }));
+  }
+  function frame() {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of particles) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(140,165,255,0.5)';
+      ctx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize', resize, { passive: true });
+  resize(); frame();
+}());
+</script>
 </body>
 </html>

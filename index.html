@@ -1,448 +1,382 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Joshua Maina — Cybersecurity Analyst and IT practitioner. Threat detection, web exploitation, digital forensics and cloud security.">
 
-    <!-- --------- UNICONS ---------- -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+<title>Joshua Maina | Cybersecurity Analyst</title>
 
-    <!-- --------- CSS ---------- -->
-    <link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="images/Black & Blue Minimalist Modern Initial Font Logo.png" type="image/x-icon">
 
-    <!-- --------- FAVICON ---------- -->
-    <link rel="shortcut icon" href="images/Black & Blue Minimalist Modern Initial Font Logo.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@300;400;500;600&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <title>My Portfolio | Joshua Maina</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <canvas id="bg-canvas"></canvas>
-   <div class="container">
-    <!-- --------------- HEADER --------------- -->
-    <nav id="header">
-        <div class="nav-logo">
-            <p class="nav-name">Joshua Maina</p>
-        </div>
-        <div class="nav-menu" id="myNavMenu">
-            <ul class="nav_menu_list">
-                <li class="nav_list">
-                    <a href="#home" class="nav-link active-link">Home</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#about" class="nav-link">About</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#contact" class="nav-link">Contact</a>
-                    <div class="circle"></div>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="nav-menu-btn">
-            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
-        </div>
-    </nav>
-    
 
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-    <!-- -------------- MAIN ---------------- -->
-    <main class="wrapper">
-       <!-- -------------- FEATURED BOX ---------------- -->
-       <section class="featured-box" id="home">
-          <div class="featured-text">
-               <div class="featured-name">
-                <p><span class="typedText"></span></p>
-            </div>
-            <div class="featured-text-info">
-                <p>As a highly motivated professional with a deep passion for cybersecurity and two years of hands-on experience as a Tech Support and Cybersecurity Analyst. My academic background is rooted in understanding and addressing complex security challenges, which I immediately applied in a professional setting. During my time as an analyst, I actively utilized my skills by implementing cybersecurity measures, conducting security assessments, and providing essential technical support. I am eager to leverage this combined experience to contribute to innovative cybersecurity initiatives and continue growing as a professional in this dynamic field.
-                </p>
-            </div>
-            <div class="featured-text-btn">
-                <a href="#contact">
-                    <button class="btn blue-btn">Hire Me</button>
-                </a>
-            </div>
-            
-            <div class="social_icons">
-                <div class="icon">
-                    <a href="https://www.linkedin.com/in/joshuamaina/" target="_blank">
-                        <i class="uil uil-linkedin"></i>
-                    </a>
-                </div>
-                
-                <div class="icon">
-                    <a href="https://github.com/joshmainaa7" target="_blank">
-                        <i class="uil uil-github"></i>
-                    </a>
-                </div>
-                
-                
-                
-            </div>
-          </div>
-          <div class="featured-image">
-            <div class="circuit-board">
-              <svg class="circuit-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="2" result="blur"/>
-                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                  </filter>
-                  <filter id="glow-strong">
-                    <feGaussianBlur stdDeviation="4" result="blur"/>
-                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                  </filter>
-                </defs>
-                <!-- Traces: chip area is 165-435 (270px wide, centered in 600) -->
-                <g filter="url(#glow)" stroke="#00c9ff" stroke-width="1.5" fill="none" opacity="0.7">
-                  <!-- TOP pins -->
-                  <path d="M230,165 L230,90 L140,90"/>
-                  <path d="M255,165 L255,70 L110,70"/>
-                  <path d="M280,165 L280,50 L80,50"/>
-                  <path d="M300,165 L300,30 L50,30"/>
-                  <path d="M320,165 L320,50 L520,50"/>
-                  <path d="M345,165 L345,70 L490,70"/>
-                  <path d="M370,165 L370,90 L460,90"/>
-                  <!-- BOTTOM pins -->
-                  <path d="M230,435 L230,510 L140,510"/>
-                  <path d="M255,435 L255,530 L110,530"/>
-                  <path d="M280,435 L280,550 L80,550"/>
-                  <path d="M300,435 L300,570 L50,570"/>
-                  <path d="M320,435 L320,550 L520,550"/>
-                  <path d="M345,435 L345,530 L490,530"/>
-                  <path d="M370,435 L370,510 L460,510"/>
-                  <!-- LEFT pins -->
-                  <path d="M165,230 L90,230 L90,140"/>
-                  <path d="M165,255 L70,255 L70,110"/>
-                  <path d="M165,280 L50,280 L50,80"/>
-                  <path d="M165,300 L30,300 L30,50"/>
-                  <path d="M165,320 L50,320 L50,520"/>
-                  <path d="M165,345 L70,345 L70,490"/>
-                  <path d="M165,370 L90,370 L90,460"/>
-                  <!-- RIGHT pins -->
-                  <path d="M435,230 L510,230 L510,140"/>
-                  <path d="M435,255 L530,255 L530,110"/>
-                  <path d="M435,280 L550,280 L550,80"/>
-                  <path d="M435,300 L570,300 L570,50"/>
-                  <path d="M435,320 L550,320 L550,520"/>
-                  <path d="M435,345 L530,345 L530,490"/>
-                  <path d="M435,370 L510,370 L510,460"/>
-                </g>
-                <!-- Brighter inner traces with double bends -->
-                <g filter="url(#glow-strong)" stroke="#00c9ff" stroke-width="2" fill="none" opacity="0.9">
-                  <path d="M270,165 L270,100 L170,100 L170,20"/>
-                  <path d="M300,165 L300,80 L420,80 L420,20"/>
-                  <path d="M330,165 L330,110 L450,110 L450,40"/>
-                  <path d="M270,435 L270,500 L170,500 L170,580"/>
-                  <path d="M300,435 L300,520 L420,520 L420,580"/>
-                  <path d="M330,435 L330,490 L450,490 L450,560"/>
-                  <path d="M165,270 L100,270 L100,170 L20,170"/>
-                  <path d="M165,300 L80,300 L80,420 L20,420"/>
-                  <path d="M165,330 L110,330 L110,450 L40,450"/>
-                  <path d="M435,270 L500,270 L500,170 L580,170"/>
-                  <path d="M435,300 L520,300 L520,420 L580,420"/>
-                  <path d="M435,330 L490,330 L490,450 L560,450"/>
-                </g>
-                <!-- Nodes -->
-                <g filter="url(#glow-strong)" fill="#00c9ff">
-                  <circle cx="140" cy="90" r="3"/><circle cx="110" cy="70" r="3"/>
-                  <circle cx="80" cy="50" r="3"/><circle cx="50" cy="30" r="4"/>
-                  <circle cx="520" cy="50" r="3"/><circle cx="490" cy="70" r="3"/>
-                  <circle cx="460" cy="90" r="3"/>
-                  <circle cx="170" cy="20" r="4"/><circle cx="420" cy="20" r="4"/>
-                  <circle cx="450" cy="40" r="3"/>
-                  <circle cx="140" cy="510" r="3"/><circle cx="110" cy="530" r="3"/>
-                  <circle cx="80" cy="550" r="3"/><circle cx="50" cy="570" r="4"/>
-                  <circle cx="520" cy="550" r="3"/><circle cx="490" cy="530" r="3"/>
-                  <circle cx="460" cy="510" r="3"/>
-                  <circle cx="170" cy="580" r="4"/><circle cx="420" cy="580" r="4"/>
-                  <circle cx="450" cy="560" r="3"/>
-                  <circle cx="90" cy="140" r="3"/><circle cx="70" cy="110" r="3"/>
-                  <circle cx="50" cy="80" r="3"/><circle cx="30" cy="50" r="4"/>
-                  <circle cx="50" cy="520" r="3"/><circle cx="70" cy="490" r="3"/>
-                  <circle cx="90" cy="460" r="3"/>
-                  <circle cx="20" cy="170" r="4"/><circle cx="20" cy="420" r="4"/>
-                  <circle cx="40" cy="450" r="3"/>
-                  <circle cx="510" cy="140" r="3"/><circle cx="530" cy="110" r="3"/>
-                  <circle cx="550" cy="80" r="3"/><circle cx="570" cy="50" r="4"/>
-                  <circle cx="550" cy="520" r="3"/><circle cx="530" cy="490" r="3"/>
-                  <circle cx="510" cy="460" r="3"/>
-                  <circle cx="580" cy="170" r="4"/><circle cx="580" cy="420" r="4"/>
-                  <circle cx="560" cy="450" r="3"/>
-                </g>
-                <!-- Animated pulse dots -->
-                <circle r="4" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="3s" repeatCount="indefinite" path="M300,165 L300,30 L50,30"/>
-                </circle>
-                <circle r="4" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="3s" repeatCount="indefinite" begin="0.5s" path="M435,300 L570,300 L570,50"/>
-                </circle>
-                <circle r="4" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M300,435 L300,570 L50,570"/>
-                </circle>
-                <circle r="4" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s" path="M165,300 L30,300 L30,50"/>
-                </circle>
-                <circle r="3" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.3s" path="M435,270 L500,270 L500,170 L580,170"/>
-                </circle>
-                <circle r="3" fill="#fff" filter="url(#glow-strong)">
-                  <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.8s" path="M165,330 L110,330 L110,450 L40,450"/>
-                </circle>
-                <!-- Chip outline in SVG -->
-                <rect x="165" y="165" width="270" height="270" rx="12" fill="none" stroke="#00c9ff" stroke-width="3" filter="url(#glow-strong)" class="chip-rect"/>
-              </svg>
-              <div class="chip-frame">
-                <div class="image">
-                  <img src="images/me.jpeg" alt="avatar">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="scroll-icon-box">
-            <a href="#about" class="scroll-btn">
-                <i class="uil uil-mouse-alt"></i>
-                <p>Scroll Down</p>
-            </a>
-          </div>
+<!-- ======================= NAV ======================= -->
+<header class="nav" id="nav">
+  <a href="#home" class="nav__logo">JOSHUA<span class="nav__logo-mark">&#9650;</span>MAINA</a>
 
-       </section>
-       <!-- -------------- ABOUT BOX ---------------- -->
-       <section class="section" id="about">
-          <div class="top-header">
-            <h1>About Me</h1>
-          </div>
-          <div class="row">
-            <div class="col">
-                <div class="about-info">
-                    <h3> Introduction</h3>
-                    <p>I am a 24-year-old IT practitioner with a degree in Information Technology and two years of hands-on experience. I am passionate about Tech and Web2 Security, with a strong commitment to safeguarding digital assets and defending systems, networks, and AI technologies against evolving cyber threats. I thrive in environments that promote continuous learning and innovation, and I’m driven to contribute to building secure, resilient digital infrastructures in an increasingly connected world.
+  <nav class="nav__menu" id="nav-menu">
+    <a href="#approach" class="nav__link">APPROACH</a>
+    <a href="#capabilities" class="nav__link">CAPABILITIES</a>
+    <a href="#credentials" class="nav__link">CREDENTIALS</a>
+    <a href="#about" class="nav__link">ABOUT</a>
+    <a href="#contact" class="nav__link">CONTACT</a>
+  </nav>
 
-                    </p>
-                </div>
-                <div class="skills-title cert-title">
-                    <h3>Achievements</h3>
-                </div>
-                <div class="badges-row">
-                    <div class="badge-card">
-                        <div class="badge-img-wrapper">
-                            <img src="images/htb-cwes-badge.png" alt="HTB Certified Web Exploitation Specialist">
-                        </div>
-                        <div class="badge-info">
-                            <h3>Web Exploitation Specialist</h3>
-                            <p class="badge-issuer"><i class="uil uil-award"></i> Hack The Box</p>
-                        </div>
-                    </div>
-                    <div class="badge-card badge-card--delayed">
-                        <div class="badge-img-wrapper">
-                            <img src="images/aws-cloud-badge.png" alt="AWS Educate Introduction to Cloud 101">
-                        </div>
-                        <div class="badge-info">
-                            <h3>Introduction to Cloud 101</h3>
-                            <p class="badge-issuer"><i class="uil uil-award"></i> AWS Educate</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col">
-                <div class="skills-title">
-                    <h3>Skills and Techniques</h3>
-                </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>SIEMs and Security Forensics</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span>Wazuh</span>
-                        <span>Rapid7</span>
-                        <span>Qualys</span>
-                        <span>Digital Forensics</span>
-                        <span>Autopsy</span>
-                        
-                        
-                    </div>
-                </div>
-                <div class="skills-box pentest">
-                    <div class="skills-header">
-                        <h3>Web Security</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span>Web Exploitation Specialist</span>
-                        <span>Burpsuite</span>
-                        <span>sqlmap</span>
-                        <span>Scripting</span>
-                        <span>Reconnaisance</span>
-                        <span>Bug Bounty Hunting</span>
-                        <span>Kali Linux</span>
-                    </div>
-                </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Web Development</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>Python</span>
-                    </div> 
-                </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Tech Support</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span>Debugging</span>
-                        <span>Incident Management</span>
-                        <span>Technical Support</span>
-                        <span>System Diagnostics</span> 
-                        <span>Software and System Admininstration</span>
-                        <span>Networking</span> 
-                    </div>    
-            </div>
-            <div class="skills-box">
-                <div class="skills-header">
-                    <h3>Technical Tools and Operating Systems</h3>
-                </div>
-                <div class="skills-list">
-                    <span>JIRA</span>
-                    <span>Postman (API Testing)</span>
-                    <span>Linux OS</span>
-                    <span>Firebase</span>
-                    <span>SQL</span>
-                    <span>Kubernetes</span>
-                    <span>AWS Cloud</span>
-                    <span>Server Configuration and Management</span>
-                </div>
-            </div>
+  <a href="#contact" class="btn btn--light nav__cta">GET IN TOUCH</a>
 
-          </div>
-       </section>
+  <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
 
-       <!-- -------------- PROJECT BOX ---------------- -->
+<main>
 
-       <section class="section" id="projects">
-          <div class="top-header">
-              <h1>Projects</h1>
-          </div>
-          <div class="project-container">
-            <div class="project-box">
-                <i class="uil uil-briefcase-alt"></i>
-                <h3>Completed</h3>
-                <label>8 Finished Projects</label>
-            </div>
-           
-            <div class="project-box">
-                <i class="uil uil-award"></i>
-                <h3>Experience</h3>
-                <label>2 years in IT & Cybersecurity</label>
-            </div>
-          </div>
-       </section>
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="home">
+  <canvas class="hero__sphere" id="sphere-canvas" aria-hidden="true"></canvas>
 
-       <!-- -------------- CONTACT BOX ---------------- -->
-
-       <section class="section" id="contact">
-          <div class="top-header">
-            <h1>Get in touch</h1>
-            <span>Do you have an opportunity for me? Contact me</span>
-          </div>
-          <div class="row">
-             <div class="col">
-                <div class="contact-info">
-                    <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
-                    <p><i class="uil uil-envelope"></i> Email: joshuamaina83@gmail.com
-                    <p><i class="uil uil-phone"></i> Tel: +250 790 611 760</p>
-                </div>
-             </div>
-             <div class="col">
-                <form action="https://api.web3forms.com/submit" method="POST">
-                    <div class="form-control">
-                        <input type="hidden" name="access_key" value="e95f9bf6-caba-4532-9078-3079f6659367">
-                        <input type="hidden" name="subject" value="New Contact Form Submission">
-                        <input type="hidden" name="from_name" value="Joshua Maina Portfolio">
-                        <input type="hidden" name="redirect" value="https://joshmainaa7.github.io/MyPortfolio/success.html">
-                        <div class="form-inputs">
-                            <input type="text" name="name" class="input-field" placeholder="Name"> <!-- Added name attribute -->
-                            <input type="text" name="email" class="input-field" placeholder="Email"> <!-- Added name attribute -->
-                        </div>
-                        <div class="text-area">
-                            <textarea name="message" class="message" placeholder="Message"></textarea> <!-- Added name attribute -->
-                        </div>
-                        <div class="form-button">
-                            <button type="submit" class="btn">Send <i class="uil uil-message"></i></button> <!-- Added type attribute -->
-                        </div>
-                    </div>
-                </form>
-            </div>
-            
-          </div>
-       </section>
-
-    </main>
-
-
-    <!-- --------------- FOOTER --------------- -->
-    <footer>
-        <div class="top-footer">
-            <p>Joshua Maina</p>
-        </div>
-        <div class="middle-footer">
-            <ul class="footer-menu">
-                <li class="footer_menu_list">
-                    <a href="#home">Home</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#about">About</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#projects">Projects</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <div class="footer-social-icons">
-            <div class="icon">
-                <a href="https://www.linkedin.com/in/joshuamaina/" target="_blank">
-                    <i class="uil uil-linkedin"></i>
-                </a>
-            </div>
-            
-            <div class="icon">
-                <a href="https://github.com/joshmainaa7" target="_blank">
-                    <i class="uil uil-github"></i>
-                </a>
-            </div>
-        </div>
-        <div class="bottom-footer">
-            <p> &copy; <a href="#home" style="text-decoration: none;">Joshua Maina</a> - All rights reserved</p>
-        </div>
-    </footer>
-
+  <div class="hero__inner">
+    <h1 class="hero__title scramble" data-scramble>I find what's actually exploitable.</h1>
+    <p class="hero__sub">
+      Cybersecurity Analyst and IT practitioner — detecting, validating and remediating
+      risk across systems, networks and web applications.
+    </p>
+    <div class="hero__actions">
+      <a href="#contact" class="btn btn--light">GET IN TOUCH</a>
+      <a href="Joshua Maina Resume.pdf" download class="btn btn--ghost">DOWNLOAD CV</a>
     </div>
+  </div>
 
+  <a href="#approach" class="hero__scroll" aria-label="Scroll down">
+    <span class="hero__scroll-line"></span>
+    <span class="hero__scroll-text">SCROLL</span>
+  </a>
+</section>
 
+<!-- ======================= APPROACH ======================= -->
+<section class="section" id="approach">
+  <div class="shell">
+    <p class="eyebrow">APPROACH</p>
+    <h2 class="display display--md scramble" data-scramble>Finding it is only the first part.</h2>
+    <p class="lede">
+      A weakness only counts if someone can reach it. My work is proving which ones can be —
+      and then getting them closed.
+    </p>
 
+    <ol class="cards">
+      <li class="card reveal">
+        <span class="card__num">01</span>
+        <h3 class="card__title">Detect and monitor</h3>
+        <p class="card__body">
+          Continuous visibility across systems and networks using SIEM platforms — Wazuh,
+          Rapid7 and Qualys — tuned to surface genuine signal instead of alert noise.
+        </p>
+      </li>
+      <li class="card reveal">
+        <span class="card__num">02</span>
+        <h3 class="card__title">Prove exploitability</h3>
+        <p class="card__body">
+          Hands-on web exploitation and reconnaissance with Burp Suite, sqlmap and Kali Linux
+          to confirm whether a weakness is actually reachable in context.
+        </p>
+      </li>
+      <li class="card reveal">
+        <span class="card__num">03</span>
+        <h3 class="card__title">Investigate incidents</h3>
+        <p class="card__body">
+          Digital forensics and triage with Autopsy — reconstructing what happened, what was
+          touched, and what the real blast radius was.
+        </p>
+      </li>
+      <li class="card reveal">
+        <span class="card__num">04</span>
+        <h3 class="card__title">Manage vulnerabilities</h3>
+        <p class="card__body">
+          Assessment and prioritisation across the stack, including bug bounty hunting —
+          ordering the work by what is reachable rather than by raw severity score.
+        </p>
+      </li>
+      <li class="card reveal">
+        <span class="card__num">05</span>
+        <h3 class="card__title">Secure the infrastructure</h3>
+        <p class="card__body">
+          Hardening and administration across AWS Cloud, Kubernetes, Linux and server
+          configuration — securing the ground the software runs on.
+        </p>
+      </li>
+      <li class="card reveal">
+        <span class="card__num">06</span>
+        <h3 class="card__title">Keep systems running</h3>
+        <p class="card__body">
+          Two years of frontline technical support: incident management, system diagnostics and
+          debugging — security that survives contact with real users.
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
 
-    <!-- ----- TYPING JS Link ----- -->
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<!-- ======================= STATS ======================= -->
+<section class="section section--tight">
+  <div class="shell">
+    <div class="stats">
+      <div class="stat reveal">
+        <span class="stat__value" data-count="2" data-suffix="+">0</span>
+        <span class="stat__label">Years hands-on in IT &amp; cybersecurity</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat__value" data-count="8" data-suffix="">0</span>
+        <span class="stat__label">Projects delivered end to end</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat__value" data-count="2" data-suffix="">0</span>
+        <span class="stat__label">Industry certifications earned</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat__value" data-count="20" data-suffix="+">0</span>
+        <span class="stat__label">Security tools &amp; platforms in practice</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-       <!-- ----- SCROLL REVEAL JS Link----- -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+<!-- ======================= CAPABILITIES ======================= -->
+<section class="section" id="capabilities">
+  <div class="shell">
+    <p class="eyebrow">SKILLS AND TECHNIQUES</p>
+    <h2 class="display display--lg scramble" data-scramble>Built across the whole surface.</h2>
+    <p class="lede">
+      Defence does not stop at one layer. These are the domains and tools I work in day to day.
+    </p>
 
-    <!-- ----- MAIN JS ----- -->
-    <script src="main.js"></script>
+    <div class="domains">
+      <article class="domain reveal">
+        <h3 class="domain__name">SIEM &amp; Security Forensics</h3>
+        <ul class="tags">
+          <li>Wazuh</li><li>Rapid7</li><li>Qualys</li>
+          <li>Digital Forensics</li><li>Autopsy</li>
+        </ul>
+      </article>
 
-   
+      <article class="domain reveal">
+        <h3 class="domain__name">Web Security</h3>
+        <ul class="tags">
+          <li>Web Exploitation</li><li>Burp Suite</li><li>sqlmap</li>
+          <li>Reconnaissance</li><li>Bug Bounty Hunting</li><li>Kali Linux</li>
+        </ul>
+      </article>
+
+      <article class="domain reveal">
+        <h3 class="domain__name">Cloud &amp; Infrastructure</h3>
+        <ul class="tags">
+          <li>AWS Cloud</li><li>Kubernetes</li><li>Linux OS</li>
+          <li>Server Configuration</li><li>Firebase</li><li>Networking</li>
+        </ul>
+      </article>
+
+      <article class="domain reveal">
+        <h3 class="domain__name">Development &amp; Scripting</h3>
+        <ul class="tags">
+          <li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>SQL</li>
+        </ul>
+      </article>
+
+      <article class="domain reveal">
+        <h3 class="domain__name">Technical Support</h3>
+        <ul class="tags">
+          <li>Incident Management</li><li>System Diagnostics</li>
+          <li>Debugging</li><li>System Administration</li>
+        </ul>
+      </article>
+
+      <article class="domain reveal">
+        <h3 class="domain__name">Tooling</h3>
+        <ul class="tags">
+          <li>JIRA</li><li>Postman</li><li>Git</li><li>API Testing</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SIGNAL / PIXEL PLUME ======================= -->
+<section class="section section--light" id="signal">
+  <canvas class="dissolve dissolve--top" data-edge="top" aria-hidden="true"></canvas>
+  <canvas class="dissolve dissolve--bottom" data-edge="bottom" aria-hidden="true"></canvas>
+  <div class="shell">
+    <p class="eyebrow">SIGNAL OVER NOISE</p>
+    <h2 class="display display--lg">Most findings are not the finding.</h2>
+
+    <div class="signal">
+      <p class="signal__lede">
+        A scanner will hand you hundreds of flagged issues. Only a handful are reachable
+        in the environment they live in. The work is separating those few from the rest —
+        by attack path, by reachability, by what an attacker could actually do with it.
+      </p>
+      <ul class="signal__steps">
+        <li><span>01</span> Enumerate</li>
+        <li><span>02</span> Validate</li>
+        <li><span>03</span> Prioritise</li>
+        <li><span>04</span> Remediate</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CREDENTIALS ======================= -->
+<section class="section" id="credentials">
+  <div class="shell">
+    <p class="eyebrow">CREDENTIALS</p>
+    <h2 class="display display--md scramble" data-scramble>Verified, not just claimed.</h2>
+
+    <div class="creds">
+      <article class="cred reveal">
+        <div class="cred__badge">
+          <img src="images/htb-cwes-badge.png" alt="Hack The Box Certified Web Exploitation Specialist badge">
+        </div>
+        <div class="cred__info">
+          <p class="cred__issuer">HACK THE BOX</p>
+          <h3 class="cred__name">Certified Web Exploitation Specialist</h3>
+          <p class="cred__desc">
+            Practical, exam-based validation of web application attack and exploitation skill.
+          </p>
+        </div>
+      </article>
+
+      <article class="cred reveal">
+        <div class="cred__badge">
+          <img src="images/aws-cloud-badge.png" alt="AWS Educate Introduction to Cloud 101 badge">
+        </div>
+        <div class="cred__info">
+          <p class="cred__issuer">AWS EDUCATE</p>
+          <h3 class="cred__name">Introduction to Cloud 101</h3>
+          <p class="cred__desc">
+            Foundations of cloud architecture, services and the shared responsibility model.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ABOUT ======================= -->
+<section class="section" id="about">
+  <div class="shell">
+    <p class="eyebrow">ABOUT</p>
+
+    <div class="about">
+      <div class="about__text">
+        <h2 class="display display--sm">Two years in, and still early.</h2>
+        <p>
+          I am a 24-year-old IT practitioner with a degree in Information Technology and two
+          years of hands-on experience as a Tech Support and Cybersecurity Analyst.
+        </p>
+        <p>
+          My academic background is rooted in understanding and addressing complex security
+          challenges, which I applied immediately in a professional setting — implementing
+          security measures, running assessments and providing the technical support that keeps
+          systems trustworthy day to day.
+        </p>
+        <p>
+          I am passionate about tech and Web2 security, with a commitment to safeguarding
+          digital assets and defending systems, networks and AI technologies against evolving
+          threats. I thrive where continuous learning is the norm, and I want to help build
+          secure, resilient infrastructure in an increasingly connected world.
+        </p>
+      </div>
+
+      <aside class="about__card reveal">
+        <div class="about__portrait">
+          <img src="images/me.jpeg" alt="Joshua Maina">
+        </div>
+        <p class="about__name">Joshua Maina</p>
+        <p class="about__role">Cybersecurity Analyst &amp; IT Practitioner</p>
+        <div class="about__socials">
+          <a href="https://www.linkedin.com/in/joshuamaina/" target="_blank" rel="noopener">LINKEDIN</a>
+          <a href="https://github.com/joshmainaa7" target="_blank" rel="noopener">GITHUB</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="section" id="contact">
+  <div class="shell">
+    <p class="eyebrow">CONTACT</p>
+    <h2 class="display display--lg scramble" data-scramble>Let's talk about what you're running.</h2>
+
+    <div class="contact">
+      <div class="contact__info">
+        <p class="contact__lede">
+          Do you have an opportunity, an engagement or a problem worth looking at? Reach out.
+        </p>
+        <dl class="contact__list">
+          <div>
+            <dt>EMAIL</dt>
+            <dd><a href="mailto:joshuamaina83@gmail.com">joshuamaina83@gmail.com</a></dd>
+          </div>
+          <div>
+            <dt>PHONE</dt>
+            <dd><a href="tel:+250790611760">+250 790 611 760</a></dd>
+          </div>
+          <div>
+            <dt>LOCATION</dt>
+            <dd>Kigali, Rwanda</dd>
+          </div>
+        </dl>
+      </div>
+
+      <form class="contact__form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="e95f9bf6-caba-4532-9078-3079f6659367">
+        <input type="hidden" name="subject" value="New Contact Form Submission">
+        <input type="hidden" name="from_name" value="Joshua Maina Portfolio">
+        <input type="hidden" name="redirect" value="https://joshmainaa7.github.io/MyPortfolio/success.html">
+
+        <div class="field">
+          <label for="f-name">NAME</label>
+          <input id="f-name" type="text" name="name" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="f-email">EMAIL</label>
+          <input id="f-email" type="email" name="email" required placeholder="you@company.com">
+        </div>
+        <div class="field">
+          <label for="f-message">MESSAGE</label>
+          <textarea id="f-message" name="message" rows="5" required placeholder="What are you working on?"></textarea>
+        </div>
+        <button type="submit" class="btn btn--light btn--block">SEND MESSAGE</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="shell footer__inner">
+    <a href="#home" class="nav__logo">JOSHUA<span class="nav__logo-mark">&#9650;</span>MAINA</a>
+    <nav class="footer__menu">
+      <a href="#approach">APPROACH</a>
+      <a href="#capabilities">CAPABILITIES</a>
+      <a href="#credentials">CREDENTIALS</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <p class="footer__legal">&copy; <span id="year">2026</span> Joshua Maina — All rights reserved</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>
