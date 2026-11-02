@@ -307,6 +307,111 @@ document.getElementById('year').textContent = new Date().getFullYear();
 }());
 
 /* ============================================================
+   PIXEL DISSOLVE — section boundaries break into grid cells,
+   thinning out as the section scrolls up through the viewport
+   ============================================================ */
+(function dissolve() {
+  const bands = [...document.querySelectorAll('.dissolve')];
+  if (!bands.length) return;
+
+  const DARK   = '#0B0C0E';
+  const GREY   = 'rgba(124,128,146,0.88)';
+  const PALE   = 'rgba(203,207,236,0.92)';
+  const ACCENT = '#455EFF';
+  const LATTICE = 'rgba(11,12,14,0.07)';
+
+  // Stable per-cell pseudo-random — same cell keeps its value across frames
+  const rand = (x, y, s) => {
+    const n = Math.sin(x * 127.1 + y * 311.7 + s * 74.7) * 43758.5453;
+    return n - Math.floor(n);
+  };
+
+  const clamp = (v, a, b) => v < a ? a : (v > b ? b : v);
+
+  function paint(canvas) {
+    const ctx = canvas.getContext('2d');
+    const top = canvas.dataset.edge === 'top';
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    if (!w || !h) return;
+
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    if (canvas.width !== w * dpr || canvas.height !== h * dpr) {
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    const cell = w < 620 ? 18 : 26;
+    const cols = Math.ceil(w / cell);
+    const rows = Math.ceil(h / cell);
+
+    // How far this band has travelled up the viewport: 0 entering, 1 leaving
+    const r = canvas.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const p = clamp((vh - r.top) / (vh + r.height), 0, 1);
+
+    // Dense as it arrives, thinning as it passes — the dissolve
+    const dens = Math.max(0, 1.08 - p * 0.86);
+
+    // faint lattice across the whole band
+    ctx.strokeStyle = LATTICE;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    for (let gx = 1; gx < cols; gx++) {
+      const x = Math.round(gx * cell) + 0.5;
+      ctx.moveTo(x, 0); ctx.lineTo(x, h);
+    }
+    for (let gy = 1; gy < rows; gy++) {
+      const y = Math.round(gy * cell) + 0.5;
+      ctx.moveTo(0, y); ctx.lineTo(w, y);
+    }
+    ctx.stroke();
+
+    for (let gy = 0; gy < rows; gy++) {
+      // densest at the boundary itself, scattering away from it
+      const g = top ? 1 - gy / rows : gy / rows;
+      const limit = g * dens;
+      if (limit <= 0.01) continue;
+
+      for (let gx = 0; gx < cols; gx++) {
+        if (rand(gx, gy, 1) >= limit) continue;
+
+        const tone = rand(gx, gy, 2);
+        ctx.fillStyle = tone < 0.62 ? DARK
+                      : tone < 0.86 ? GREY
+                      : tone < 0.95 ? PALE
+                      : ACCENT;
+        ctx.fillRect(gx * cell, gy * cell, cell, cell);
+      }
+    }
+  }
+
+  let queued = false;
+  function update() {
+    queued = false;
+    for (const b of bands) if (b.dataset.visible === '1') paint(b);
+  }
+  function onScroll() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(update);
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      e.target.dataset.visible = e.isIntersecting ? '1' : '0';
+      if (e.isIntersecting) paint(e.target);
+    });
+  }, { rootMargin: '120px 0px' });
+
+  bands.forEach(b => { b.dataset.visible = '0'; io.observe(b); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  bands.forEach(paint);
+}());
+
+/* ============================================================
    PIXEL PLUME — dithered noise field that frays into code glyphs
    ============================================================ */
 (function plume() {
