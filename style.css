@@ -204,6 +204,7 @@ main, .nav, .footer { position: relative; z-index: 1; }
   color: var(--fg-muted);
   padding-block: 6px;
   position: relative;
+  white-space: nowrap;
   transition: color .22s ease;
 }
 .nav__link::after {
@@ -572,6 +573,88 @@ main, .nav, .footer { position: relative; z-index: 1; }
   font-size: 0.9rem;
   line-height: 1.6;
 }
+
+/* ============================================================
+   WRITE-UPS
+   ============================================================ */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.post { background: var(--bg); }
+
+.post__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 34px 32px 30px;
+  transition: background .35s ease;
+}
+.post__link:hover { background: var(--bg-raised-2); }
+
+.post__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--fg-dim);
+}
+.post__tag {
+  color: var(--accent);
+  border: 1px solid rgba(69, 94, 255, 0.4);
+  border-radius: 2px;
+  padding: 4px 8px;
+}
+.post__tag--cve {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.post__soon {
+  margin-left: auto;
+  color: #FFB020;
+}
+
+.post__title {
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.9vw, 1.34rem);
+  letter-spacing: -0.025em;
+  line-height: 1.28;
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+
+.post__excerpt {
+  margin: 0 0 26px;
+  color: var(--fg-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.post__cta {
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: var(--fg);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color .25s ease, gap .25s ease;
+}
+.post__cta::after {
+  content: "\2192";
+  transition: transform .25s ease;
+}
+.post__link:hover .post__cta { color: var(--accent); gap: 12px; }
+.post__link:hover .post__cta::after { transform: translateX(2px); }
 
 /* ============================================================
    ABOUT
