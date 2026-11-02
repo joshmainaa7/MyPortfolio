@@ -462,6 +462,155 @@ main, .nav, .footer { position: relative; z-index: 1; }
 }
 
 /* ============================================================
+   LIGHT INTERLUDE — breaks the dark run, as the reference does
+   ============================================================ */
+.section--light {
+  background: #EDEFFF;
+  color: #0B0C0E;
+  border-top-color: transparent;
+}
+.section--light .eyebrow { color: rgba(11, 12, 14, 0.45); }
+.section--light .display { color: #0B0C0E; }
+
+.signal {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  margin-top: 56px;
+}
+.signal__text p {
+  margin: 0 0 32px;
+  color: rgba(11, 12, 14, 0.7);
+  max-width: 46ch;
+}
+.signal__steps {
+  display: flex;
+  flex-direction: column;
+}
+.signal__steps li {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(11, 12, 14, 0.14);
+  font-size: 1.02rem;
+}
+.signal__steps li:last-child { border-bottom: 1px solid rgba(11, 12, 14, 0.14); }
+.signal__steps span {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+
+/* ---------- Pixel plume ---------- */
+.plume {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 11 / 10;
+  background: #0B0C0E;
+  overflow: hidden;
+  isolation: isolate;
+}
+.plume__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.plume__panel {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  top: 7%;
+  background: rgba(10, 11, 14, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: clamp(16px, 2.4vw, 26px);
+  color: #fff;
+}
+.plume__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 18px;
+}
+
+.plume__rows > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.82);
+  padding: 8px 10px;
+  margin-bottom: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.plume__rows i {
+  width: 3px;
+  height: 12px;
+  flex: 0 0 3px;
+  background: #FF4D4D;
+}
+.plume__rows i.is-mid { background: #FFB020; }
+.plume__rows b {
+  margin-left: auto;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.plume__meters {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+.plume__meters > div {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
+}
+.plume__meters b {
+  grid-column: 2;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.52rem;
+}
+.meter {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+.meter s {
+  display: block;
+  height: 100%;
+  width: var(--v);
+  background: var(--accent);
+  text-decoration: none;
+}
+.meter s.is-warm { background: #FF4D4D; }
+
+.plume__foot {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 18px 0 0;
+}
+
+/* ============================================================
    CREDENTIALS
    ============================================================ */
 .creds {
@@ -707,8 +856,10 @@ main, .nav, .footer { position: relative; z-index: 1; }
    ============================================================ */
 @media (max-width: 1000px) {
   .about,
-  .contact { grid-template-columns: 1fr; }
+  .contact,
+  .signal { grid-template-columns: 1fr; }
   .about__card { max-width: 340px; }
+  .plume { aspect-ratio: 4 / 3; }
 }
 
 @media (max-width: 860px) {
@@ -751,6 +902,10 @@ main, .nav, .footer { position: relative; z-index: 1; }
 
   .hero__actions .btn { width: 100%; }
   .footer__inner { justify-content: flex-start; }
+
+  .plume { aspect-ratio: 3 / 4; }
+  .plume__panel { left: 16px; right: 16px; }
+  .plume__rows > div { font-size: 0.54rem; letter-spacing: 0.06em; }
 }
 
 /* ---------- Reduced motion ---------- */

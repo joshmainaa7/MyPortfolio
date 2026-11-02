@@ -307,6 +307,182 @@ document.getElementById('year').textContent = new Date().getFullYear();
 }());
 
 /* ============================================================
+   PIXEL PLUME — dithered noise field that frays into code glyphs
+   ============================================================ */
+(function plume() {
+  const canvas = document.getElementById('plume-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const CELL = 7;
+  const GLYPHS = '01ABCDEF#%&$@/\\|<>[]{}';
+
+  /* --- value noise with smooth interpolation --- */
+  const PERM = new Uint8Array(512);
+  (function seed() {
+    const p = Uint8Array.from({ length: 256 }, (_, i) => i);
+    for (let i = 255; i > 0; i--) {
+      const j = (Math.random() * (i + 1)) | 0;
+      [p[i], p[j]] = [p[j], p[i]];
+    }
+    PERM.set(p); PERM.set(p, 256);
+  }());
+
+  const hash = (x, y) => PERM[(PERM[x & 255] + (y & 255)) & 255] / 255;
+  const fade = t => t * t * (3 - 2 * t);
+
+  function noise(x, y) {
+    const xi = Math.floor(x), yi = Math.floor(y);
+    const xf = x - xi, yf = y - yi;
+    const u = fade(xf), v = fade(yf);
+    const a = hash(xi, yi),     b = hash(xi + 1, yi);
+    const c = hash(xi, yi + 1), d = hash(xi + 1, yi + 1);
+    return (a * (1 - u) + b * u) * (1 - v) + (c * (1 - u) + d * u) * v;
+  }
+
+  function fbm(x, y) {
+    let sum = 0, amp = 0.5, freq = 1;
+    for (let o = 0; o < 4; o++) {
+      sum += noise(x * freq, y * freq) * amp;
+      amp *= 0.5;
+      freq *= 2.07;
+    }
+    return sum;
+  }
+
+  // Ordered 4x4 dither — breaks the thin part of the plume into blocks
+  const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5]
+    .map(v => (v + 0.5) / 16);
+
+  let w = 0, h = 0, cols = 0, rows = 0, dpr = 1, raf = null, t = 0;
+
+  // One cell per pixel, scaled up with smoothing off — pixelation for free,
+  // and one drawImage instead of thousands of fillRect calls.
+  const buf = document.createElement('canvas');
+  const bctx = buf.getContext('2d');
+  let img = null;
+
+  // Glyphs come from a pre-rendered atlas; fillText per cell is far too slow.
+  const ATLAS_CELL = 16;
+  const atlas = document.createElement('canvas');
+  (function buildAtlas() {
+    atlas.width = ATLAS_CELL * GLYPHS.length;
+    atlas.height = ATLAS_CELL;
+    const a = atlas.getContext('2d');
+    a.font = `${Math.round(ATLAS_CELL * 0.8)}px "Geist Mono", ui-monospace, monospace`;
+    a.textAlign = 'center';
+    a.textBaseline = 'middle';
+    a.fillStyle = 'rgb(150,163,250)';
+    for (let i = 0; i < GLYPHS.length; i++) {
+      a.fillText(GLYPHS[i], i * ATLAS_CELL + ATLAS_CELL / 2, ATLAS_CELL / 2);
+    }
+  }());
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = canvas.clientWidth;
+    h = canvas.clientHeight;
+    if (!w || !h) return;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.imageSmoothingEnabled = false;
+    cols = Math.ceil(w / CELL);
+    rows = Math.ceil(h / CELL);
+    buf.width = cols;
+    buf.height = rows;
+    img = bctx.createImageData(cols, rows);
+  }
+
+  const fringe = [];
+
+  function frame() {
+    if (!img) return;
+    const d = img.data;
+    fringe.length = 0;
+    const tw1 = t * 0.22, tw2 = t * 0.16, tn = t * 0.09;
+    const flick = (t * 5) | 0;
+
+    // A warped plume sweeps up from the lower left and frays into glyphs.
+    for (let gy = 0; gy < rows; gy++) {
+      const vv = gy / rows;
+      const vn = vv * 2.2, vn2 = vv * 3.4;
+      const bayerRow = (gy & 3) * 4;
+      for (let gx = 0; gx < cols; gx++) {
+        const u = gx / cols;
+
+        // warp the sample point by a second noise field — gives organic swirl
+        const wx = fbm(u * 2.2 + tw1, vn) - 0.5;
+        const wy = fbm(u * 2.2 + 11.3, vn - tw2) - 0.5;
+        const n = fbm(u * 3.4 + wx * 1.7 + tn, vn2 + wy * 1.7);
+
+        // diagonal falloff: dense lower-left, frays out to upper-right
+        const diag = u * 0.60 + (1 - vv) * 0.34;
+        const v = (n - 0.44) * 2.9 + (0.58 - diag) * 1.9;
+
+        const o = (gy * cols + gx) << 2;
+
+        if (v > 0.20) {
+          const k = Math.min((v - 0.20) / 0.95, 1);
+          // thin part dithers out instead of fading to a soft edge
+          if (k < 0.42 && k / 0.42 < BAYER[bayerRow + (gx & 3)]) {
+            d[o + 3] = 0;
+            continue;
+          }
+          d[o]     = 94 + k * 60;
+          d[o + 1] = 98 + k * 56;
+          d[o + 2] = 252;
+          d[o + 3] = (0.28 + k * 0.64) * 255;
+        } else {
+          d[o + 3] = 0;
+          if (v > 0.03 && fringe.length < 540 &&
+              ((gx * 7 + gy * 13 + flick) % 9) === 0) {
+            fringe.push(gx, gy, v);
+          }
+        }
+      }
+    }
+
+    bctx.putImageData(img, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    ctx.drawImage(buf, 0, 0, cols, rows, 0, 0, cols * CELL, rows * CELL);
+
+    for (let i = 0; i < fringe.length; i += 3) {
+      const gx = fringe[i], gy = fringe[i + 1];
+      const idx = (hash(gx, gy) * GLYPHS.length) | 0;
+      ctx.globalAlpha = Math.min(fringe[i + 2] * 2.8, 0.6);
+      ctx.drawImage(atlas, idx * ATLAS_CELL, 0, ATLAS_CELL, ATLAS_CELL,
+                    gx * CELL, gy * CELL, CELL, CELL);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function loop() {
+    t += 0.006;
+    frame();
+    raf = requestAnimationFrame(loop);
+  }
+
+  const ro = new ResizeObserver(() => { resize(); frame(); });
+  ro.observe(canvas);
+  resize();
+  frame();
+
+  if (reduceMotion) return;
+
+  // Only animate while the figure is on screen
+  const io = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      if (!raf) raf = requestAnimationFrame(loop);
+    } else {
+      cancelAnimationFrame(raf);
+      raf = null;
+    }
+  }, { threshold: 0 });
+  io.observe(canvas);
+}());
+
+/* ============================================================
    AMBIENT BACKGROUND — drifting particle field
    ============================================================ */
 (function background() {
